@@ -1,0 +1,58 @@
+---
+import MobileNavigation from './MobileNavigation.astro';
+import DesktopNavigation from './DesktopNavigation.astro';
+import Container from './Container.astro';
+
+const links = [
+  {
+    url: '/',
+    label: 'Blog'
+  },
+  {
+    url: '/projects',
+    label: 'Projects'
+  },
+  {
+    url: '/about',
+    label: 'About'
+  }
+];
+---
+
+<header
+  class="pointer-events-none relative z-50 flex flex-none flex-col"
+  style={{
+    height: 'var(--header-height)',
+    marginBottom: 'var(--header-mb)'
+  }}
+>
+  <div class="top-0 z-10 h-16 pt-6">
+    <Container>
+      <div class="relative flex gap-4">
+        <div class="flex flex-1">
+          <!-- <AvatarContainer>
+            <Avatar />
+          </AvatarContainer> -->
+
+          <div class="pointer-events-auto">
+            <a href="/" class="inline-block cursor-pointer">🐻</a>
+          </div>
+        </div>
+
+        <div class="flex flex-1 justify-end md:justify-center">
+          <MobileNavigation links={links} />
+          <DesktopNavigation links={links} />
+        </div>
+
+        <div class="flex justify-end md:flex-1">
+          <div class="pointer-events-auto">
+            ☀️
+            <!-- TODO: Maybe someday?
+            <ThemeToggle />
+        -->
+          </div>
+        </div>
+      </div>
+    </Container>
+  </div>
+</header>

@@ -1,0 +1,44 @@
+---
+import CardTime from './CardTime.astro';
+import { formatDate } from '../../lib/date';
+import CardTitle from './CardTitle.astro';
+
+interface Props {
+  title: string;
+  date: string;
+  teaser: string;
+  url?: string;
+}
+
+const { url, title, date, teaser } = Astro.props;
+---
+
+<article class="md:grid md:grid-cols-4 md:items-baseline">
+  <div class="group relative flex flex-col items-start md:col-span-3">
+    <CardTitle url={url}>{title}</CardTitle>
+
+    <CardTime class="md:hidden" dateTime={date} decorate>
+      {formatDate(date)}
+    </CardTime>
+
+    <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+      {teaser}
+    </p>
+
+    <div
+      aria-hidden="true"
+      class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
+    >
+      Read article
+      <!-- <ChevronRightIcon class="ml-1 h-4 w-4 stroke-current" /> -->
+    </div>
+  </div>
+
+  <CardTime class="mt-1 hidden md:block" dateTime={date}>
+    {formatDate(date)}
+  </CardTime>
+
+  <!-- <Card.Eyebrow as="time" dateTime={article.date} class="mt-1 hidden md:block">
+    {formatDate(article.date)}
+  </Card.Eyebrow> -->
+</article>

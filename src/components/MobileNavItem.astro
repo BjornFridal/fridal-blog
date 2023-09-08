@@ -1,0 +1,22 @@
+---
+interface Props {
+  isActive?: boolean;
+  href?: string;
+}
+
+const { href, isActive } = Astro.props;
+---
+
+<li>
+  <a
+    href={href}
+    class:list={[
+      'block px-3 py-2 transition',
+      isActive
+        ? 'text-teal-500 dark:text-teal-400'
+        : 'hover:text-teal-500 dark:hover:text-teal-400'
+    ]}
+  >
+    <slot />
+  </a>
+</li>
