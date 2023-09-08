@@ -1,26 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Container from '../components/Container.astro';
+import Container from '../components/Containers/Container.astro';
 import BlogPostCard from '../components/BlogPostCard/Card.astro';
 const posts = await Astro.glob('../pages/blog/*.md');
 ---
 
 <Layout title="Welcome to Astro.">
-  <Container>
-    <div class="mt-16 sm:mt-32">
-      <header class="max-w-2xl">
-        <h1
-          class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
-        >
-          Writing on software design, company building, and the aerospace
-          industry.
-        </h1>
-        <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-          All of my...
-        </p>
-      </header>
+  <Container class="mt-16 sm:mt-32">
+    <header class="max-w-2xl">
+      <h1
+        class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
+      >
+        Writing on software design, company building, and the aerospace
+        industry.
+      </h1>
+      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        All of my...
+      </p>
+    </header>
 
-      <!-- <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+    <!-- <h1>Welcome to <span class="text-gradient">Astro</span></h1>
 
       <p class="instructions">
         To get started, open the directory <code>src/pages</code> in your
@@ -29,27 +28,26 @@ const posts = await Astro.glob('../pages/blog/*.md');
         above.
       </p> -->
 
-      <div class="mt-16 sm:mt-20">
-        <div
-          class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
-        >
-          <div class="flex max-w-3xl flex-col space-y-16">
-            {
-              posts.map((post) => (
-                <BlogPostCard
-                  url={post.url}
-                  title={post.frontmatter.title}
-                  date={post.frontmatter.pubDate}
-                  teaser={post.frontmatter.teaser}
-                />
-              ))
-            }
+    <div class="mt-16 sm:mt-20">
+      <div
+        class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
+      >
+        <div class="flex max-w-3xl flex-col space-y-16">
+          {
+            posts.map((post) => (
+              <BlogPostCard
+                url={post.url}
+                title={post.frontmatter.title}
+                date={post.frontmatter.pubDate}
+                teaser={post.frontmatter.teaser}
+              />
+            ))
+          }
 
-            <pre
-              class="text-white text-xs max-w-sm">
+          <pre
+            class="text-white text-xs max-w-sm">
               {JSON.stringify(posts, null, 2)}
             </pre>
-          </div>
         </div>
       </div>
     </div>

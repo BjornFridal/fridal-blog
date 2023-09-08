@@ -1,7 +1,7 @@
 ---
 import MobileNavigation from './MobileNavigation.astro';
 import DesktopNavigation from './DesktopNavigation.astro';
-import Container from './Container.astro';
+import Container from './Containers/Container.astro';
 
 const links = [
   {
@@ -19,13 +19,7 @@ const links = [
 ];
 ---
 
-<header
-  class="pointer-events-none relative z-50 flex flex-none flex-col"
-  style={{
-    height: 'var(--header-height)',
-    marginBottom: 'var(--header-mb)'
-  }}
->
+<header class="pointer-events-none relative z-50 flex flex-none flex-col">
   <div class="top-0 z-10 h-16 pt-6">
     <Container>
       <div class="relative flex gap-4">
