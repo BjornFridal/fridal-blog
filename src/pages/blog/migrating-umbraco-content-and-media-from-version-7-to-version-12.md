@@ -11,10 +11,11 @@ tags: ['umbraco', 'content', 'usync']
 ---
 
 # Migrating Umbraco content and media from version 7 to version 12
-using uSync from 
+
+using uSync from
 
 Migrating an Umbraco website from version 7 to **version 12**!
 
 ```js
-console.log('This code will be syntax highlighted!');
+console.log('This code will be syntax highlighted');
 ```
