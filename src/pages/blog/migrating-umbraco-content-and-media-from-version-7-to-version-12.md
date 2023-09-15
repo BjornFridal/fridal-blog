@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/BlogPostLayout.astro'
-title: 'Migrating content, media and members from Umbraco 7 to 12 using uSync'
+title: 'Migrating Content, Media, and Members from Umbraco 7 to 12 with uSync'
 pubDate: 2023-09-15
 description: 'This is the first post of my new Astro blog.'
 author: 'Bjørn Fridal'
@@ -10,41 +10,39 @@ image:
 tags: ['umbraco', 'content', 'usync']
 ---
 
+#### As the clock ticks towards the End-of-Life (EOL) for Umbraco 7, a lot of developers will be faced with the gruelling task of migrating an ancient website. After spending days navigating such a migration, I'm here to share the lessons I've learned.
+
 ![](../../assets/migrating-umbraco-content-with-usync.png)
 
-With Umbraco 7 reaching End-of-Life (EOL) on September 30 2023 the race is on for many developers to get that Umbraco website upgraded.
+<p class="text-rose-200 text-center text-sm font-bold">The TLDR; Migration Diagram</p>
 
-Having myself just spent the last 6 days in the deep weeds of migrating an Umbraco website from 7 to 12, I thought I would share my approach and what pitfalls to be aware of.
+## Setting the Scene
 
-### The stage
-
-To give some context and to make this website comparable to yours, let me provide you with some details. The website is a catalog of food videos and recipes. Some of the recipes are free, but the majority of them are behind a paywall. If you want access to the full recipe catalog you have to become a paying member.
+To help you relate, here's a snapshot of the website I have been migrating for the last week. The website is a catalog of food videos and recipes. Some of the recipes are free, but the majority of them are behind a paywall. If you want access to the full recipe catalog you have to become a paying member.
 
 A bit on the technical side:
 
 - Approximately 500 pages, 5.000 images and 10.000+ members.
-- Single language website, so no use of dictionary etc.
-- Only custom forms, so no use of Umbraco Forms.
-- A number of customer property editors and custom dashboards.
-- Quite a few integrations to other external API, but I'll leave them out since they are so specific to the project.
+- Single language website (no dictionary etc).
+- Several custom forms (no Umbraco Forms).
+- Several custom property editors and custom dashboards.
+- Several API integrations specific to the project.
 
-Also worth noting is that I am the one who developed the website initially and have upgraded and maintained it these past seven years. In other words, I have a deep understading of all the parts that makes up this website.
+And a small note: I developed this website from scratch and have managed it for the past seven years, so I'm intimately familiar with its intricacies.
 
-### The approach - uSync ftw
+### uSync to the Rescue?
 
-Even though Umbraco does support migrating from Umbraco 7 to 8, from 8 to 10 and from then from 10 to 12, I never considered going down that path. Let's be honest - migrating complex website is never fun and I didn't wan't to make it worse by going through **three** migration processes!
+Though Umbraco supports sequential migrations (7 to 8, then 8 to 10, and 10 to 12), I wasn't keen on this multi-step process. Instead, I hinged my hopes on uSync to directly export content, media, and members from version 7 and import them into version 12. Simple, right?
 
-Instead my approach would be to export content, media and members from the old version 7 website using [uSync](https://our.umbraco.com/packages/developer-tools/usync/) and import it into the new version 12 website uSync. Sounds easy right?
+### The Hurdle
 
-### The problem - ...
+As you may have guessed, it wasn’t that straightforward. While I managed to export content and media using uSync from the old site, there were compatibility issues with the formats for the new version. The files exported from the old website were in a different XML format than what the new website expected.
 
-Well, as it turned out that wasn't quite possible. I was able to export content and media using uSync from the old website, but the exported files were in a different format than the format uSync on the new website expected.
+This is expected: different uSync versions are designed for their respective Umbraco versions, and they aren’t always cross-compatible.
 
-It makes sense since those are two very different versions of uSync integrating with very different version of Umbraco! uSync is made to sync data between Umbraco installations of the same version which can't be said to be the case in my situation.
+Additionally, the uSync.PeopleEdition add-on for syncing members wasn't supported on my older website, so I couldn't use it to export the members.
 
-Also, even though uSync has an add-on package for syncing members (uSync.PeopleEdition) that package wasn't supported on the old website.
-
-### The solution - An old friend (XSLT)
+### The Solution - An Old Friend
 
 Even though I couldn't directly export and import my data using uSync I had still managed to export all of the content and media to disk which was a huge step in the right direction!
 
@@ -60,11 +58,11 @@ I created a few pieces of content on the new Umbraco 12 website and exported tha
 
 Again using XSLT I also converted the members I had exporting from the database into a format that uSync would be happy with.
 
-### Wrangling old property editors
+### Wrangling Legacy Property Editors
 
-One of the things that I was most happy to see was that all of the internal references in the imported content still worked. That is, content selected with a content picker, a media picker, a multinode tree picker etc. All of those references still worked after importing them in the new Umbraco website!
+One of the things that I was most happy to see was that all of the internal references in the imported content still worked. That is, content selected with content pickers, media pickers, multinode treepickers etc. All of those references remained intact in the new website.
 
-On the flip side, some content couldn't be imported at all. Old property editors like the Umbraco.Grid (not the new Block Grid) had tons of JSON that was just as annoying as it looked. Again, XSLT proved to be a big help. Newer versions of XSLT comes with the handy json-to-xml and xml-to-json functions. Those functions allowed me to parse the JSON from Umbraco.Grid with XSLT and transform into a sensible format for uSync to use.
+However, there were some bumps. Older property editors like Umbraco.Grid presented challenges with their cumbersome JSON data. Again, XSLT proved to be a big help. Newer versions of XSLT comes with the handy json-to-xml and xml-to-json functions. Those functions allowed me to parse JSON and transform into a format compatible with uSync.
 
 :::note
 Huge shout out to uSync
