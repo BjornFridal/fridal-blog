@@ -1,6 +1,6 @@
 ---
-layout: '../../layouts/Layout.astro'
-title: 'Migrating Umbraco content, media and members from 7 to 12 using uSync'
+layout: '../../layouts/BlogPostLayout.astro'
+title: 'Migrating content, media and members from Umbraco 7 to 12 using uSync'
 pubDate: 2023-09-15
 description: 'This is the first post of my new Astro blog.'
 author: 'Bjørn Fridal'
@@ -9,8 +9,6 @@ image:
   alt: 'The full Astro logo.'
 tags: ['umbraco', 'content', 'usync']
 ---
-
-# Migrating Umbraco content, media and members from 7 to 12 using uSync
 
 ![](../../assets/migrating-umbraco-content-with-usync.png)
 
