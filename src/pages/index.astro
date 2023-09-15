@@ -4,6 +4,13 @@ import Container from '../components/Containers/Container.astro';
 import BlogPostCard from '../components/BlogPostCard/Card.astro';
 
 const posts = await Astro.glob('../pages/blog/*.md');
+
+// Sort posts by date
+posts.sort((a, b) => {
+  const dateA = new Date(a.frontmatter.pubDate);
+  const dateB = new Date(b.frontmatter.pubDate);
+  return dateB.getTime() - dateA.getTime();
+});
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,7 +23,7 @@ const posts = await Astro.glob('../pages/blog/*.md');
         industry.
       </h1>
       <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-        All of my...
+        All of my....
       </p>
     </header>
 

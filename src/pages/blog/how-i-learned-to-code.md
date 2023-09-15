@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'How I learned to code'
-pubDate: 2023-10-12
+pubDate: 2022-10-12
 description: '...'
 author: 'Bjørn Fridal'
 image:
