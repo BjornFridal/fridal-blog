@@ -13,7 +13,10 @@ posts.sort((a, b) => {
 });
 ---
 
-<Layout title="Bjørn Fridal - Frontend developer in Copenhagen">
+<Layout
+  title="Bjørn Fridal - Frontend developer in Copenhagen"
+  description="My thoughts primarily on frontend development."
+>
   <Container class="mt-16 sm:mt-32">
     <header class="max-w-2xl">
       <h1
@@ -43,21 +46,20 @@ posts.sort((a, b) => {
         <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message
         above.
       </p> -->
-
-      <div class="mt-16 sm:mt-20">
-        <div class="flex max-w-3xl flex-col space-y-10">
-          {
-            posts.map((post) => (
-              <BlogPostCard
-                url={post.url}
-                title={post.frontmatter.title}
-                date={post.frontmatter.pubDate}
-                teaser={post.frontmatter.teaser}
-              />
-            ))
-          }
-        </div>
-      </div>
     </header>
+    <div class="mt-16 sm:mt-20">
+      <div class="flex max-w-3xl flex-col space-y-10">
+        {
+          posts.map((post) => (
+            <BlogPostCard
+              url={post.url}
+              title={post.frontmatter.title}
+              date={post.frontmatter.pubDate}
+              teaser={post.frontmatter.teaser}
+            />
+          ))
+        }
+      </div>
+    </div>
   </Container>
 </Layout>
