@@ -13,21 +13,29 @@ posts.sort((a, b) => {
 });
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Bjørn Fridal - Frontend developer in Copenhagen">
   <Container class="mt-16 sm:mt-32">
     <header class="max-w-2xl">
       <h1
         class="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl"
       >
-        Writing on software design, company building, and the aerospace
-        industry.
+        Frontend developer in Copenhagen.
       </h1>
-      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-        All of my....
+      <p class="mt-5 text-zinc-600">
+        My thoughts primarily on frontend development.
       </p>
-    </header>
+      <!-- <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        I have worked with web dev for 18 years. My primary work revolves around
+        web application. Either building from scratch or optimizing existing.
+        using with React, Next.js. Feel free to reach out to me on{' '}
+        <a
+          href="mailto:bjorn@fridal.dk"
+          class="text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300"
+          >bjorn@fridal.dk</a
+        >
+      </p> -->
 
-    <!-- <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+      <!-- <h1>Welcome to <span class="text-gradient">Astro</span></h1>
 
       <p class="instructions">
         To get started, open the directory <code>src/pages</code> in your
@@ -36,11 +44,8 @@ posts.sort((a, b) => {
         above.
       </p> -->
 
-    <div class="mt-16 sm:mt-20">
-      <div
-        class="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40"
-      >
-        <div class="flex max-w-3xl flex-col space-y-16">
+      <div class="mt-16 sm:mt-20">
+        <div class="flex max-w-3xl flex-col space-y-10">
           {
             posts.map((post) => (
               <BlogPostCard
@@ -53,6 +58,6 @@ posts.sort((a, b) => {
           }
         </div>
       </div>
-    </div>
+    </header>
   </Container>
 </Layout>
