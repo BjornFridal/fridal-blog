@@ -1,7 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-// import '@fontsource-variable/roboto-serif';
 
 interface Props {
   title: string;
@@ -44,7 +43,7 @@ const isProd = import.meta.env.PROD;
 
       <div class="relative flex w-full flex-col">
         <Header />
-        <main class="flex-auto"><slot /></main>
+        <main class="flex-auto px-2 sm:px-0"><slot /></main>
         <Footer />
       </div>
     </div>

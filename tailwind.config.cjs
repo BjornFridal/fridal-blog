@@ -22,7 +22,10 @@ module.exports = {
             }
           }
         }
-      })
+      }),
+      animation: {
+        'spin-slow': 'spin 7s linear infinite'
+      }
     }
   },
   plugins: [require('@tailwindcss/typography')]
