@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/BlogPostLayout.astro'
-title: 'Migrating Content, Media, and Members from Umbraco 7 to 12 with uSync'
+title: 'Migrating directly from Umbraco 7 to 12 with uSync'
 pubDate: 2023-09-15
 description: 'This is the first post of my new Astro blog.'
 author: 'Bjørn Fridal'
@@ -12,9 +12,10 @@ tags: ['umbraco', 'content', 'usync']
 
 #### As the clock ticks towards the End-of-Life (EOL) for Umbraco 7, a lot of developers will be faced with the gruelling task of migrating an ancient website. After spending days navigating such a migration, I'm here to share the lessons I've learned.
 
+<!--
 ![](../../assets/migrating-umbraco-content-with-usync.png)
-
 <p class="text-rose-200 text-center text-sm font-bold">The TLDR; Migration Diagram</p>
+-->
 
 ## Setting the Scene
 
