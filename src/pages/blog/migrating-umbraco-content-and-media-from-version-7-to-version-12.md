@@ -2,7 +2,7 @@
 layout: '../../layouts/BlogPostLayout.astro'
 title: 'From Umbraco 7 to 12 with uSync in two days'
 teaser: 'How I migrated an Umbraco website with over 10k members in two days'
-pubDate: 2023-09-15
+pubDate: 2023-10-06
 description: 'This is the first post of my new Astro blog.'
 author: 'Bjørn Fridal'
 image:
