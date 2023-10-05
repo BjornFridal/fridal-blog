@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Silence - an actual productivity booster'
-pubDate: 2023-09-12
+pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image:

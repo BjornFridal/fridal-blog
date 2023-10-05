@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Three examples of a lazy frontend developer'
-pubDate: 2022-12-14
+pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image:

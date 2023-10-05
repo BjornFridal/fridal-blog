@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Pastable code vs. installable package'
-pubDate: 2023-09-12
+pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image:

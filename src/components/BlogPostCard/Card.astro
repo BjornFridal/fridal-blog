@@ -1,5 +1,4 @@
 ---
-import CardTime from './CardTime.astro';
 import { formatDate } from '../../lib/date';
 import CardTitle from './CardTitle.astro';
 
@@ -10,35 +9,19 @@ interface Props {
   url?: string;
 }
 
-const { url, title, date, teaser } = Astro.props;
+const { url, title, date } = Astro.props;
 ---
 
-<article class="">
-  <div class="group relative flex flex-col">
-    <CardTitle url={url}>{title}</CardTitle>
+<article class="group relative">
+  <CardTitle url={date ? url : undefined}>{title}</CardTitle>
 
-    <CardTime dateTime={date} class="">
-      {formatDate(date)}
-    </CardTime>
-
-    <!-- 
-    <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-      {teaser}
-    </p> -->
-    <!-- 
-    <div
-      aria-hidden="true"
-      class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
-    >
-      Read article
-    </div> -->
-  </div>
-
-  <!-- <CardTime class="mt-1 hidden md:block" dateTime={date}>
-    {formatDate(date)}
-  </CardTime> -->
-
-  <!-- <Card.Eyebrow as="time" dateTime={article.date} class="mt-1 hidden md:block">
-    {formatDate(article.date)}
-  </Card.Eyebrow> -->
+  {
+    date ? (
+      <time datetime={date} class="relative z-10 mb-3 text-sm text-zinc-400">
+        {formatDate(date)}
+      </time>
+    ) : (
+      <span class="text-zinc-500 text-sm font-bold">Work in progress</span>
+    )
+  }
 </article>

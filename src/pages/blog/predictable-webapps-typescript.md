@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Using TypeScript to make your webapp predictable'
-pubDate: 2023-09-12
+pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image:
@@ -10,6 +10,6 @@ image:
 tags: ['...']
 ---
 
-#### The predictable webapps series. 
+#### The predictable webapps series.
 
 ## Using TypeScript to make your webapp predictable

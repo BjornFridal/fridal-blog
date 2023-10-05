@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/Layout.astro'
 title: 'Use ARIA to for better accessibility in your webapp'
-pubDate: 2022-09-12
+pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image:
