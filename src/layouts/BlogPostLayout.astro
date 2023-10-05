@@ -1,6 +1,7 @@
 ---
 import Container from '../components/Containers/Container.astro';
 import Prose from '../components/Prose.astro';
+import Bio from '../components/Bio.astro';
 import Layout from '../layouts/Layout.astro';
 import { formatDate } from '../lib/date';
 
@@ -19,7 +20,7 @@ const {
 
 <Layout title={title} description={description}>
   <Container class="mt-16 sm:mt-32">
-    <article>
+    <article class="mb-20">
       <header class="flex flex-col">
         <h1
           class="mb-4 text-4xl font-extrabold tracking-tight text-zinc-800 sm:text-6xl"
@@ -42,5 +43,7 @@ const {
         <slot />
       </Prose>
     </article>
+
+    <Bio titleTag="p" showSocial />
   </Container>
 </Layout>

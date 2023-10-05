@@ -1,0 +1,41 @@
+---
+import type { HTMLTag } from 'astro/types';
+import SocialIcons from './SocialIcons.astro';
+export interface Props {
+  titleTag?: HTMLTag;
+  showSocial?: boolean;
+}
+const { titleTag: TitleTag = 'h1', showSocial } = Astro.props;
+---
+
+<header
+  class="flex flex-col sm:flex-row items-center gap-y-4 sm:gap-x-10 text-center sm:text-left rounded-xl bg-gray-50 p-4"
+>
+  <div class="relative h-28 w-28 flex-none">
+    <img
+      src="/bface.jpg"
+      alt="Bjørn Fridal"
+      class="rounded-full w-full h-full relative z-10"
+    />
+    <div
+      class="absolute -inset-1 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0 animate-spin-slow"
+    >
+    </div>
+  </div>
+  <div class="relative">
+    <TitleTag class="font-semibold mb-2">Bjørn Fridal @ Copenhagen</TitleTag>
+    <p class="font-semibold text-sm mb-2">
+      Full time consultant, open to new opportunities. Frontend development is
+      my jam. React, Redux, Next.js, TypeScript, Vitest etc.
+    </p>
+    <p class="font-semibold text-sm">Connect and say hi 🦄 😀 👋</p>
+
+    {
+      showSocial && (
+        <div class="mt-5 inline-flex sm:absolute sm:-bottom-2 sm:-right-0.5">
+          <SocialIcons />
+        </div>
+      )
+    }
+  </div>
+</header>

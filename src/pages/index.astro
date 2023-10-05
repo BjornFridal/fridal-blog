@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Containers/Container.astro';
-import BlogPostCard from '../components/BlogPostCard/Card.astro';
+import Bio from '../components/Bio.astro';
+import Card from '../components/Card.astro';
 
 const posts = await Astro.glob('../pages/blog/*.md');
 
@@ -18,33 +19,13 @@ posts.sort((a, b) => {
   description="My thoughts primarily on frontend development."
 >
   <Container class="mt-10">
-    <header class="flex items-center gap-x-10 rounded-xl bg-gray-50 p-4">
-      <div class="relative h-28 w-28 flex-none">
-        <img
-          src="/bface.jpg"
-          alt="Bjørn Fridal"
-          class="rounded-full w-full h-full relative z-10"
-        />
-        <div
-          class="absolute -inset-1 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0 animate-spin-slow"
-        >
-        </div>
-      </div>
-      <div>
-        <h1 class="font-semibold mb-2">Bjørn Fridal @ Copenhagen</h1>
-        <p class="font-semibold text-sm mb-2">
-          Full time consultant, open to new opportunities. Frontend development
-          is my jam. React, Redux, Next.js, TypeScript, Vitest etc.
-        </p>
-        <p class="font-semibold text-sm">Connect and say hi 🦄 😀 👋</p>
-      </div>
-    </header>
+    <Bio />
 
     <div class="mt-16 sm:mt-24">
       <div class="flex max-w-3xl flex-col">
         {
           posts.map((post) => (
-            <BlogPostCard
+            <Card
               url={post.url}
               title={post.frontmatter.title}
               date={post.frontmatter.pubDate}
