@@ -1,15 +1,17 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Containers/Container.astro';
 import Bio from '../components/Bio.astro';
 import Card from '../components/Card.astro';
 
-const posts = await Astro.glob('../pages/blog/*.md');
+const posts = await getCollection('blog');
 
 // Sort posts by date
 posts.sort((a, b) => {
-  const dateA = new Date(a.frontmatter.pubDate);
-  const dateB = new Date(b.frontmatter.pubDate);
+  const dateA = new Date(a.data.pubDate || -1);
+  const dateB = new Date(b.data.pubDate || -1);
+
   return dateB.getTime() - dateA.getTime();
 });
 ---
@@ -26,10 +28,10 @@ posts.sort((a, b) => {
         {
           posts.map((post) => (
             <Card
-              url={post.url}
-              title={post.frontmatter.title}
-              date={post.frontmatter.pubDate}
-              teaser={post.frontmatter.teaser}
+              slug={`blog/${post.slug}`}
+              title={post.data.title}
+              date={post.data.pubDate}
+              teaser={post.data.teaser}
             />
           ))
         }

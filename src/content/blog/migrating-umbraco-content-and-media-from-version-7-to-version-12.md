@@ -1,22 +1,15 @@
 ---
-layout: '../../layouts/BlogPostLayout.astro'
 title: 'From Umbraco 7 to 12 with uSync in two days'
 teaser: 'How I migrated an Umbraco website with over 10k members in two days'
 pubDate: 2023-10-06
 description: 'This is the first post of my new Astro blog.'
 author: 'Bjørn Fridal'
-image:
-  url: 'https://docs.astro.build/assets/full-logo-light.png'
-  alt: 'The full Astro logo.'
+image: './usync-xslt-blender.png'
+imageAlt: 'uSync and the XSLT blender'
 tags: ['umbraco', 'content', 'usync']
 ---
 
 #### As the clock ticks towards the End-of-Life (EOL) for Umbraco 7, a lot of developers will be faced with the gruelling task of migrating an ancient website. After spending days navigating such a migration, I'm here to share the lessons I've learned.
-
-<!--
-![](../../assets/migrating-umbraco-content-with-usync.png)
-<p class="text-rose-200 text-center text-sm font-bold">The TLDR; Migration Diagram</p>
--->
 
 ## Setting the Scene
 

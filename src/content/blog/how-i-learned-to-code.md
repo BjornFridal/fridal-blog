@@ -1,12 +1,11 @@
 ---
-layout: '../../layouts/Layout.astro'
 title: 'How I learned to code'
 pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
-image:
-  url: '...'
-  alt: '...'
+image: null
+imageAlt: null
+teaser: null
 tags: ['developer']
 ---
 

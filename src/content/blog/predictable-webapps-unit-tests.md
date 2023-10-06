@@ -1,12 +1,11 @@
 ---
-layout: '../../layouts/Layout.astro'
 title: 'Using unit tests to make your webapp predictable'
 pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
-image:
-  url: '...'
-  alt: '...'
+image: null
+imageAlt: null
+teaser: null
 tags: ['...']
 ---
 

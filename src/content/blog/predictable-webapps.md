@@ -1,12 +1,11 @@
 ---
-layout: '../../layouts/Layout.astro'
 title: 'Building predictable webapps'
 pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
-image:
-  url: '...'
-  alt: '...'
+image: null
+imageAlt: null
+teaser: null
 tags: ['...']
 ---
 

@@ -1,12 +1,11 @@
 ---
-layout: '../../layouts/Layout.astro'
 title: 'Three examples of a lazy frontend developer'
 pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
-image:
-  url: '...'
-  alt: '...'
+image: null
+imageAlt: null
+teaser: null
 tags: ['developer']
 ---
 
