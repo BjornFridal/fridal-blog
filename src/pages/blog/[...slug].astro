@@ -25,23 +25,18 @@ const { Content } = await entry.render();
       <header class="flex flex-col">
         {
           entry.data.image && (
-            <figure class="mb-10 ">
-              <div class="border border-gray-100 rounded-lg p-4 mb-2">
-                <Image
-                  src={entry.data.image}
-                  alt={entry.data.imageAlt}
-                  class="w-full h-auto"
-                />
-              </div>
-              <figcaption class="text-zinc-500 text-right text-[10px] mr-2">
-                Icons from The Noun Project
-              </figcaption>
+            <figure class="border overflow-hidden border-gray-100 rounded-lg mb-10">
+              <Image
+                src={entry.data.image}
+                alt={entry.data.imageAlt}
+                class="w-full h-auto"
+              />
             </figure>
           )
         }
 
         <h1
-          class="mb-4 text-4xl font-extrabold tracking-tight text-zinc-800 sm:text-6xl"
+          class="mb-2 text-4xl font-extrabold tracking-tight text-zinc-800 sm:text-6xl"
         >
           {entry.data.title}
         </h1>
@@ -50,13 +45,14 @@ const { Content } = await entry.render();
           entry.data.pubDate && (
             <time
               datetime={entry.data.pubDate}
-              class="flex items-center font-semibold text-sm text-zinc-500"
+              class="flex items-center font-semibold text-xs text-zinc-500"
             >
               {formatDate(entry.data.pubDate)}
             </time>
           )
         }
       </header>
+
       <Prose class="mt-8">
         <Content />
       </Prose>
