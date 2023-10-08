@@ -13,7 +13,7 @@ tags: ['umbraco', 'xslt', 'usync']
 
 ## The Situtation
 
-Almost 10 years ago I developed a website for a client of mine. Over the years that website has had a lot of features and integrations added. Even though it was reguraly upgraded, once we reached the end of Umbraco version 7 there wasn't anything really pushing for that next big upgrade. However with version 7's End-of-Life approaching we knew we had to do something.
+Almost 10 years ago I developed a website for a client of mine. Even though the website was regularly upgraded, once we reached the end of Umbraco version 7 there wasn't anything really pushing for that next big upgrade. However with version 7's End-of-Life approaching we knew we had to do something.
 
 With Approximately 500 pages, 5.000 images and 10.000+ members the website clearly had too much data to migrate it by hand (aka copy/paste). Even though Umbraco supports sequential migrations (7 to 8, then 8 to 10, and 10 to 12), in my experience that usually leads to a long game of whack-a-mole problems. I would rather spin up a fresh Umbraco installation and use uSync to migrate all the content from the old to the new website. Clean and simple, right?
 
@@ -47,10 +47,10 @@ One of the things that I was most happy to see was that all of the internal refe
 
 There were some bumps. Older property editors like Umbraco.Grid presented challenges with their cumbersome JSON data. Again, XSLT proved to be a big help. Newer versions of XSLT (I used [XSLT3](https://www.npmjs.com/package/xslt3)) comes with the handy json-to-xml and xml-to-json functions. Those functions allowed me to parse the JSON from Umbraco.Grid and transform into a format compatible with uSync.
 
-I guess I was so carried away by my XSLT nostalagy that I didn't realized that uSync actually comes with a content mapper for Umbraco.Grid 🙈
+I guess I was so carried away by my XSLT nostalgia that I didn't realised that uSync actually comes with a content mapper for Umbraco.Grid 🙈
 
 ## Conclusion
 
-Migrating old Umbraco websites is hardly glamorous. Even though later versions makes it a lot easier, it's still time consuming and requires a pretty good understading of the ins and outs of Umbraco. Having uSync to lean on made the whole process sooo much easier. There's a reason why it's constantly one of the most popular add-ons for Umbraco.
+Migrating old Umbraco websites is hardly glamorous. Even though later versions makes it a lot easier, it's still time consuming and requires a pretty good understanding of the ins and outs of Umbraco. Having uSync to lean on made the whole process sooo much easier. There's a reason why it's constantly one of the most popular add-ons for Umbraco.
 
 Huge thanks to Kevin Jump for building and keeping uSync to such a high standard. Check out all the <a href="https://jumoo.co.uk/uSync/" target="_blank">uSync offerings here</a>.
