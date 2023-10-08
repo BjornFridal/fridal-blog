@@ -17,8 +17,7 @@ module.exports = {
 
             h4: {
               fontWeight: 700,
-              fontSize: '1.25rem',
-              marginBottom: '3.5rem'
+              fontSize: '1.25rem'
             }
           }
         }

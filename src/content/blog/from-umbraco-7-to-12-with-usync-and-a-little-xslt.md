@@ -27,7 +27,7 @@ To be fair uSync is meant to sync content between Umbraco websites running the _
 
 ## The Solution
 
-I wrote up a small SQL script that fetched all the members directly from the database. That gave me a large XML document with all the member data including their hashed password. 
+I wrote up a small SQL script that fetched all the members directly from the database. That gave me a large XML document with all the member data including their hashed password.
 
 Now I had all of the data from the old website exported to disk as XML files. Even though I couldn't directly import that data using the modern uSync, it was still an important step in the right direction!
 
@@ -51,6 +51,6 @@ I guess I was so carried away by my XSLT nostalagy that I didn't realized that u
 
 ## Conclusion
 
-Migrating old Umbraco websites is hardly glamorous. Even though later versions makes it a lot easier, it's still time consuming and requires a pretty good understading of the ins and outs of Umbraco. Having uSync to lean on made the whole process sooo much easier. There's a reason why it's constantly one of the most popular add-ons for Umbraco. 
+Migrating old Umbraco websites is hardly glamorous. Even though later versions makes it a lot easier, it's still time consuming and requires a pretty good understading of the ins and outs of Umbraco. Having uSync to lean on made the whole process sooo much easier. There's a reason why it's constantly one of the most popular add-ons for Umbraco.
 
-Huge thanks to Kevin Jump for building and keeping uSync to such a high standard. Check out all the [uSync offerings here](https://jumoo.co.uk/uSync/).
+Huge thanks to Kevin Jump for building and keeping uSync to such a high standard. Check out all the <a href="https://jumoo.co.uk/uSync/" target="_blank">uSync offerings here</a>.
