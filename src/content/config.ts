@@ -5,6 +5,7 @@ const blogCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      description: z.string(),
       pubDate: z.date().nullable(),
       image: image()
         .refine((img) => img.width >= 1080, {
