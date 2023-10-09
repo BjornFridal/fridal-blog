@@ -19,7 +19,12 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} description={entry.data.description}>
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image.src}
+  slug={`/blog/${entry.slug}`}
+>
   <Container class="mt-10">
     <article class="mb-20">
       <header class="flex flex-col">
