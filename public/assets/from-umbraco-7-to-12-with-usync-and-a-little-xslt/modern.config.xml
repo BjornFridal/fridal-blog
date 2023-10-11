@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Content Key="fb69d327-b374-4d79-8a05-bca5a2631a2b" Alias="Crepes Suzette" Level="2">
+  <Info>
+    <Parent Key="51a7dc40-2aa1-459b-b61e-2da8b0bd660f">Recipes</Parent>
+    <Trashed>false</Trashed>
+    <ContentType>recipe</ContentType>
+    <CreateDate>2022-02-03T00:00:00</CreateDate>
+    <NodeName>Crepes Suzette</NodeName>
+    <SortOrder>211</SortOrder>
+    <Published>true</Published>
+    <Schedule />
+    <Template Key="9fb80d34-767c-4913-97a1-31174b187791">Recipe</Template>
+  </Info>
+  <Properties>
+    <BodyText>
+      <Value><![CDATA[<p>The vanilla parfait: If you want to start with the ice cream, it must freeze for at least 3 hours. I made mine the day before. - Beat the egg yolks, sugar and vanilla thickly to make an airy eggnog. Whip the cream lightly, i.e. not completely hard and gritty, and fold the eggnog together with the whipped cream. Pour the mixture into a cooled loaf pan and put it in the freezer for later.</p>]]></Value>
+    </BodyText>
+    <PreviewImage>
+      <Value><![CDATA[[{"mediaKey": "8fcd1ee5-ae76-4861-abe5-4e91a0c401fa"}]]]></Value>
+    </PreviewImage>
+    <RecipeImages>
+      <Value><![CDATA[[{"key":"ea261300-7c05-4238-a7cb-441da8c22627","mediaKey":"ea261300-7c05-4238-a7cb-441da8c22627"},{"key":"e1926f72-2c2d-4dd3-ad32-5916dd94fa49","mediaKey":"e1926f72-2c2d-4dd3-ad32-5916dd94fa49"},{"key":"81a53855-692a-4ec4-a888-5ee34c148f7b","mediaKey":"81a53855-692a-4ec4-a888-5ee34c148f7b"},{"key":"951ca0a1-7473-441b-91cd-5f71c0a5e373","mediaKey":"951ca0a1-7473-441b-91cd-5f71c0a5e373"},{"key":"5fc7e498-0b2b-4420-9427-cda4f29e39c8","mediaKey":"5fc7e498-0b2b-4420-9427-cda4f29e39c8"},{"key":"6f47f6e5-69a6-4727-abb7-458798c745dd","mediaKey":"6f47f6e5-69a6-4727-abb7-458798c745dd"},{"key":"3655947e-6f87-4576-ac2b-26ff72bf9704","mediaKey":"3655947e-6f87-4576-ac2b-26ff72bf9704"},{"key":"fca9257f-1c1c-454a-a75b-95af5fae5609","mediaKey":"fca9257f-1c1c-454a-a75b-95af5fae5609"},{"key":"6f9265f0-90c0-4f64-9b46-f30485e48e31","mediaKey":"6f9265f0-90c0-4f64-9b46-f30485e48e31"},{"key":"7b23fedc-6ff2-4c7a-a9bb-af8a906de008","mediaKey":"7b23fedc-6ff2-4c7a-a9bb-af8a906de008"},{"key":"06f86135-afa3-406c-9d01-b3d2e817e32e","mediaKey":"06f86135-afa3-406c-9d01-b3d2e817e32e"},{"key":"f8e1cbad-47ee-41d9-827e-e9234f4e5ede","mediaKey":"f8e1cbad-47ee-41d9-827e-e9234f4e5ede"},{"key":"0f635f54-24cb-4e42-91af-5bdbc990feb8","mediaKey":"0f635f54-24cb-4e42-91af-5bdbc990feb8"},{"key":"0075088e-27d4-4875-97ca-ed43ead3aaf7","mediaKey":"0075088e-27d4-4875-97ca-ed43ead3aaf7"},{"key":"37998590-abcb-46d7-8148-d99ac0c4a4dd","mediaKey":"37998590-abcb-46d7-8148-d99ac0c4a4dd"}]]]></Value>
+    </RecipeImages>
+  </Properties>
+</Content>

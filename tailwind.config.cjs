@@ -18,6 +18,22 @@ module.exports = {
             h4: {
               fontWeight: 700,
               fontSize: '1.25rem'
+            },
+
+            a: {
+              borderBottomColor: theme('colors.black'),
+              borderBottomWidth: '1px',
+              fontWeight: 600,
+              textDecoration: 'none',
+
+              '&:hover': {
+                color: '#d227c4',
+                textDecoration: 'none'
+              }
+            },
+
+            pre: {
+              fontSize: '14px'
             }
           }
         }

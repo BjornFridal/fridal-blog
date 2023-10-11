@@ -9,9 +9,11 @@ imageAlt: 'uSync and the XSLT blender'
 tags: ['umbraco', 'xslt', 'usync']
 ---
 
+import { Code } from 'astro:components';
+
 #### As the clock ticks towards the End-of-Life (EOL) for Umbraco 7, a lot of developers will be faced with the gruelling task of migrating an archaic Umbraco website. Here's how I did it.
 
-## The Situtation
+## The Situation
 
 Almost 10 years ago I developed a website for a client of mine. Even though the website was regularly upgraded, once we reached the end of Umbraco version 7 there wasn't anything really pushing for that next big upgrade. However with version 7's End-of-Life approaching we knew we had to do something.
 
@@ -37,6 +39,8 @@ If you haven't heard about XSLT it's a language used to transform XML documents 
 
 I logged into the new Umbraco 12 website, created a few pieces of content and exported it using uSync. Those exports would serve as my reference point. As I was writing up my XSLT I would compare my result to those exported files to ensure I was on the right track.
 
+[You can see an XSLT example here](#xslt-example).
+
 Using the same approach I used XSLT to convert the members I had exporting from the database into a format that uSync would be happy with.
 
 In the end I had a several thousand small XML files ready to be imported by the modern uSync. After a few trial and errors uSync was steadily chugging along, importing each file into Umbraco.
@@ -54,3 +58,99 @@ I guess I was so carried away by my XSLT nostalgia that I didn't realised that u
 Migrating old Umbraco websites is hardly glamorous. Even though later versions makes it a lot easier, it's still time consuming and requires a pretty good understanding of the ins and outs of Umbraco. Having uSync to lean on made the whole process sooo much easier. There's a reason why it's constantly one of the most popular add-ons for Umbraco.
 
 Huge thanks to Kevin Jump for building and keeping uSync to such a high standard. Check out all the <a href="https://jumoo.co.uk/uSync/" target="_blank">uSync offerings here</a>.
+
+---
+
+### XSLT Example
+
+Below you can see a simplified version of one the XSLT stylesheets I wrote. This particular stylesheet is used to transform a "Recipe" document type. Hence the name recipe.xsl
+
+To perform an XSLT transformation of an old uSync recipe file to a modern uSync file, execute the following command from a terminal:
+
+<Code lang="sh" title="s" code='xslt3 -xsl:recipe.xsl -s:old.config -o:modern.config' />
+
+The before and after uSync files: <a href="/assets/from-umbraco-7-to-12-with-usync-and-a-little-xslt/old.config.xml" target="_blank">old.config</a> and <a href="/assets/from-umbraco-7-to-12-with-usync-and-a-little-xslt/modern.config.xml" target="_blank">modern.config</a>.
+
+
+#### recipe.xsl
+
+<Code lang="xsl" code={`<xsl:stylesheet
+  version="3.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:f="http://www.w3.org/2005/xpath-functions"
+  exclude-result-prefixes="#all"
+>
+  <xsl:output method="xml" indent="yes" encoding="utf-8" cdata-section-elements="Value" />
+
+  <xsl:template match="Recipe">
+
+    <Content Key="{@guid}" Alias="{@nodeName}" Level="2">
+
+      <!-- Umbraco document properties -->
+      <Info>
+        <Parent Key="...">Recipes</Parent>
+        <Trashed>false</Trashed>
+        <ContentType>recipe</ContentType>
+        <CreateDate><xsl:value-of select="recipeDate" /></CreateDate>
+        <NodeName><xsl:value-of select="@nodeName" /></NodeName>
+        <SortOrder><xsl:value-of select="@sortOrder" /></SortOrder>
+        <Published>true</Published>
+        <Schedule></Schedule>
+        <Template Key="...">Recipe</Template>
+      </Info>
+
+      <!-- Custom document properties -->
+      <Properties>
+        <BodyText>
+          <Value>
+            <xsl:value-of select="bodyText" />
+          </Value>
+        </BodyText>
+
+        <PreviewImage>
+          <Value>
+            <xsl:if test="previewImage != ''">
+              <xsl:value-of select="concat('[{&quot;mediaKey&quot;: &quot;', previewImage, '&quot;}]')" />
+            </xsl:if>
+          </Value>
+        </PreviewImage>
+
+        <RecipeImages>
+          <Value>
+            <xsl:apply-templates select="gridContent" />
+          </Value>
+        </RecipeImages>
+      </Properties>
+
+    </Content>
+  </xsl:template>
+
+  <!--
+  Convert gridContent JSON into XML, select the image IDs
+  from deep within and turn it into a JSON array.
+  -->
+  <xsl:template match="gridContent">
+    <xsl:variable name="xml">
+      <array xmlns="http://www.w3.org/2005/xpath-functions">
+        <xsl:for-each select="json-to-xml(.)/f:map/f:array/f:map/f:array/f:map/f:array/f:map/f:array/f:map/f:map">
+
+            <xsl:if test="./f:string[@key='id']">
+              <map>
+                <string key="key">
+                  <xsl:value-of select="./f:string[@key='id']" />
+                </string>
+                <string key="mediaKey">
+                  <xsl:value-of select="./f:string[@key='id']" />
+                </string>
+              </map>
+            </xsl:if>
+
+          </xsl:for-each>
+        </array>
+    </xsl:variable>
+
+    <xsl:value-of select="xml-to-json($xml)" />
+
+  </xsl:template>
+</xsl:stylesheet>`} />

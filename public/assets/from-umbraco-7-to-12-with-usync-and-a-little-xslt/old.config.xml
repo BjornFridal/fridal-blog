@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Recipe guid="fb69d327-b374-4d79-8a05-bca5a2631a2b" id="17377" nodeName="Crepes Suzette" isDoc=""
+  updated="2022-06-27T14:29:19.6670000Z" parentGUID="f2af216a-2292-491b-a1a5-1647bfdf7a25"
+  nodeTypeAlias="Recipe" templateAlias="Recipe" sortOrder="211" published="true" isBlueprint="false">
+  <bodyText><![CDATA[<p>The vanilla parfait: If you want to start with the ice cream, it must freeze for at least 3 hours. I made mine the day before. - Beat the egg yolks, sugar and vanilla thickly to make an airy eggnog. Whip the cream lightly, i.e. not completely hard and gritty, and fold the eggnog together with the whipped cream. Pour the mixture into a cooled loaf pan and put it in the freezer for later.</p>]]></bodyText>
+  <previewImage>8fcd1ee5-ae76-4861-abe5-4e91a0c401fa</previewImage>
+  <gridContent><![CDATA[{
+  "name": "Content",
+  "sections": [
+    {
+      "grid": 12,
+      "allowAll": true,
+      "rows": [
+        {
+          "name": "1 x Image",
+          "areas": [
+            {
+              "grid": 12,
+              "allowAll": false,
+              "allowed": [
+                "media"
+              ],
+              "hasConfig": false,
+              "controls": [
+                {
+                  "value": {
+                    "focalPoint": {
+                      "left": 0.5,
+                      "top": 0.5
+                    },
+                    "id": "ea261300-7c05-4238-a7cb-441da8c22627",
+                    "udi": "umb://media/ea2613007c054238a7cb441da8c22627",
+                    "image": "/media/4961/21.jpg"
+                  },
+                  "editor": {
+                    "alias": "media"
+                  },
+                  "active": false
+                },
+                {
+                  "value": {
+                    "focalPoint": {
+                      "left": 0.5,
+                      "top": 0.5
+                    },
+                    "id": "e1926f72-2c2d-4dd3-ad32-5916dd94fa49",
+                    "udi": "umb://media/e1926f722c2d4dd3ad325916dd94fa49",
+                    "image": "/media/4967/11.jpg"
+                  },
+                  "editor": {
+                    "alias": "media"
+                  },
+                  "active": false
+                }
+              ]
+            }
+          ],
+          "hasConfig": false,
+          "id": "bed4664b-8633-b460-3a02-8b978929f06e"
+        }
+      ]
+    }
+  ]
+}]]></gridContent>
+</Recipe>
