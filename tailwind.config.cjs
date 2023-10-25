@@ -15,9 +15,18 @@ module.exports = {
             fontSize: '1.15rem',
             fontWeight: 500,
 
+            h2: {
+              marginBottom: '0.75rem'
+            },
+
             h4: {
               fontWeight: 700,
               fontSize: '1.25rem'
+            },
+
+            code: {
+              backgroundColor: theme('colors.yellow.50'),
+              fontWeight: 400
             },
 
             a: {

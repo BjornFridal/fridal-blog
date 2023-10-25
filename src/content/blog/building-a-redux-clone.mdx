@@ -1,0 +1,54 @@
+---
+title: 'Let''s build a Redux Clone'
+teaser: '...'
+pubDate: null
+description: '...'
+author: 'Bjørn Fridal'
+image: './interactive-redux-flowchart.png'
+imageAlt: 'Interactive Redux Flow Chart'
+tags: ['react', 'redux']
+---
+
+import { Code } from 'astro:components';
+
+#### To get a better understanding of how Redux works we are going to build a simplified Redux clone from scratch. To visualize how Redux works, I've made an interactive flow chart to go along with this blog post. Have fun!
+
+## Isn't Redux like… old?
+Redux was first released way back in 2015 and since then we have seen plenty of new ways to manage state in React. We have Context, Zustand, Jotai and XState just to name a few. Does it even make sense then to spend time learning about ol' Redux then?
+
+For a lot of simpler applications, React's Context will probably suffice, however, as we will see in this blog post, the real strength of Redux comes when we leverage it's middleware feature. Middleware is something Context doesn't support out-of-the-box. Besides, there are thousands of React apps in the wild that are built using with Redux, so chances are good that you will eventually work on a project with Redux. So yes, Redux maybe old, but it's definitely still worth understanding how it works.
+
+## What is Redux?
+In short Redux is a state management library. It is most often used in React applications, but it is actually framework agnostic. Once we integrate Redux with React we have an easy and predictable way to access and update state from anywhere in our application. And with Redux middleware we will be able to handle operations related to our state such as fetching data from an API and placing it into Redux, logging Redux state etc.
+
+## How does Redux work?
+In Redux we always have a single `store` and that store contains our state. The store allows us to `subscribe` to changes made to the state and it allows us to update the state by sending an `action` to the store. We do that using the `dispatch` method. A dispatched action will first go through any `middleware` the store has and then through the store's `reducer` where it will update existing state and return new state to all subscribers. An action can also dispatch new actions along the way 
+
+## What we will build
+We will build our own standalone version of Redux. Even though our Redux Clone will be a simplified version of the [real deal](https://redux.js.org/), it will have all of the fundamentals including middleware and integration with React. That way we have everything we need to get a deep understanding of how Redux works. 
+
+Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external [API](https://pokeapi.co/api/v2/pokemon?limit=1) and 2) displays the Pokémon on the screen. We will see how Redux can help use manage our state and actions related to our state.
+
+I assume that you already familiar with React and Context. If not, I hope you're a fast learner :)
+
+## Application Step-by-Step
+Here's a step-by-step breakdown of how our React application will use the Redux Clone.
+
+1) A user is presented with our UI. The UI contains a "Fetch Pokemon" button and a status text that says "No Pokemon".
+2) The user click's the "Fetch Pokemon" button.
+3) We `dispatch` an `action` of type "fetch".
+4) The `store`receives our `action` and runs it through the `middleware`.
+5) The `thunk-middleware` sees that the action has a `fetch` method and invokes it.
+6) The `fetch` method makes an async call to an API. Since the API may be slow to respond we `dispatch` an `action` of type `fetching`.
+7) The new fetching `action` is also run through the store's middleware, but nothing happens since it has no method that can be invoked by the `thunk-middleware`.
+8) The `action` then runs through the `reducer` and updates the "status" state.
+9) Since our UI (React) is `subscribed` to the store it receives the new state and accordingly changes the status text to `Fetching...`.
+10) Eventually the API responds to our request and returns the Pokémon data. We `dispatch` a new `action` of type "fetched" and this time we include the Pokémon data as a payload.
+11) Like before, our `actions` first runs through the `middleware`, but again there's no action method to be invoked.
+12) The `action` proceeds to the `reducer` and here it now updates the "status" and the "pokemon" properties.
+13) Again our UI receives the updated state from the store and can now show the Pokémon we fetched from the API.
+
+## Interactive flow chart
+That's a lot of steps to wrap your head around. To make it easier I build this fancy interactive flow chart. 
+
+<div class="xl:h-[760px] xl:relative"><div class="border border-purple-100 rounded-lg overflow-hidden xl:absolute xl:h-[760px] xl:w-[630px] px-4 xl:px-8 xl:left-[50%] xl:-translate-x-1/2 "><iframe class="aspect-[141/190] w-full" src="https://rive.app/community/6398-12512-redux-clone-flow-chart/embed" allowfullscreen></iframe></div></div>
