@@ -9,8 +9,6 @@ imageAlt: 'Interactive Redux Flow Chart'
 tags: ['react', 'redux']
 ---
 
-import { Code } from 'astro:components';
-
 #### To get a better understanding of how Redux works we are going to build a simplified Redux clone from scratch. To visualize how Redux works, I've made an interactive flow chart to go along with this blog post. Have fun!
 
 ## Isn't Redux like… old?
@@ -27,28 +25,64 @@ In Redux we always have a single `store` and that store contains our state. The 
 ## What we will build
 We will build our own standalone version of Redux. Even though our Redux Clone will be a simplified version of the [real deal](https://redux.js.org/), it will have all of the fundamentals including middleware and integration with React. That way we have everything we need to get a deep understanding of how Redux works. 
 
-Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external [API](https://pokeapi.co/api/v2/pokemon?limit=1) and 2) displays the Pokémon on the screen. We will see how Redux can help use manage our state and actions related to our state.
+Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external [API](https://pokeapi.co/api/v2/pokemon?limit=1) and 2) display the Pokémon on the screen. We will then use the Redux Clone to manage the state.
 
 I assume that you already familiar with React and Context. If not, I hope you're a fast learner :)
 
 ## Application Step-by-Step
 Here's a step-by-step breakdown of how our React application will use the Redux Clone.
 
-1) A user is presented with our UI. The UI contains a "Fetch Pokemon" button and a status text that says "No Pokemon".
-2) The user click's the "Fetch Pokemon" button.
-3) We `dispatch` an `action` of type "fetch".
+1) A user is presented with our UI. The UI contains a `Fetch Pokemon` button and a status text that says `No Pokemon`.
+2) The user click's the `Fetch Pokemon` button.
+3) We `dispatch` an `action` of type `fetch`.
 4) The `store`receives our `action` and runs it through the `middleware`.
 5) The `thunk-middleware` sees that the action has a `fetch` method and invokes it.
 6) The `fetch` method makes an async call to an API. Since the API may be slow to respond we `dispatch` an `action` of type `fetching`.
 7) The new fetching `action` is also run through the store's middleware, but nothing happens since it has no method that can be invoked by the `thunk-middleware`.
 8) The `action` then runs through the `reducer` and updates the "status" state.
 9) Since our UI (React) is `subscribed` to the store it receives the new state and accordingly changes the status text to `Fetching...`.
-10) Eventually the API responds to our request and returns the Pokémon data. We `dispatch` a new `action` of type "fetched" and this time we include the Pokémon data as a payload.
+10) Eventually the API responds to our request and returns the Pokémon data. We `dispatch` a new `action` of type `fetched` and this time we include the Pokémon data as a payload.
 11) Like before, our `actions` first runs through the `middleware`, but again there's no action method to be invoked.
 12) The `action` proceeds to the `reducer` and here it now updates the "status" and the "pokemon" properties.
 13) Again our UI receives the updated state from the store and can now show the Pokémon we fetched from the API.
 
 ## Interactive flow chart
-That's a lot of steps to wrap your head around. To make it easier I build this fancy interactive flow chart. 
+That's a lot of steps to wrap your head around. To make it easier I build this fancy interactive flow chart. Click the button and each step will be shown.
 
 <div class="xl:h-[760px] xl:relative"><div class="border border-purple-100 rounded-lg overflow-hidden xl:absolute xl:h-[760px] xl:w-[630px] px-4 xl:px-8 xl:left-[50%] xl:-translate-x-1/2 "><iframe class="aspect-[141/190] w-full" src="https://rive.app/community/6398-12512-redux-clone-flow-chart/embed" allowfullscreen></iframe></div></div>
+
+## Let's code
+Now that we know exactly what we are building, let's get coding! I mentioned that we always have a `store` in Redux and that's where we will start.
+
+
+
+```js
+createStore = (reducer, initialState) => {
+  const store = {
+    state: initialState,
+    listeners: [],
+    getState: () => store.state,
+    subscribe: (listener) => {
+      store.listeners.push(listener);
+
+      return () => {
+        const index = store.listeners.indexOf(listener);
+        store.listeners.splice(index, 1);
+      };
+    },
+    dispatch: (action) => {
+      store.state = reducer(store.state, action);
+      store.listeners.forEach((listener) => listener());
+    }
+  };
+
+  return store;
+};
+```
+
+
+
+
+
+
+
