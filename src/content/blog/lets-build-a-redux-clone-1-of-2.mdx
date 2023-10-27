@@ -1,5 +1,5 @@
 ---
-title: 'Let''s build a Redux Clone'
+title: 'Let''s build a Redux Clone (1/2)'
 teaser: '...'
 pubDate: null
 description: '...'
@@ -12,9 +12,11 @@ tags: ['react', 'redux']
 #### To get a better understanding of how Redux works we are going to build a simplified Redux clone from scratch. To visualize how Redux works, I've made an interactive flow chart to go along with this blog post. Have fun!
 
 ## Isn't Redux like… old?
-Redux was first released way back in 2015 and since then we have seen plenty of new ways to manage state in React. We have Context, Zustand, Jotai and XState just to name a few. Does it even make sense then to spend time learning about Grampa Redux, then?
+Redux was first released way back in 2015 and since then we have seen plenty of new ways to manage state in React. We have Context, Zustand, Jotai and XState just to name a few. Does it even make sense then to spend time learning about Grampa Redux?
 
-For a lot of simpler applications, React's Context will probably suffice, however, as we will see in this blog post, the real strength of Redux comes when we leverage it's middleware feature. Middleware is something Context doesn't support out-of-the-box. Besides, there are thousands of React apps in the wild that are built using with Redux, so chances are good that you will eventually work on a project with Redux. So yes, Redux maybe old, but it's definitely still worth understanding how it works.
+For a lot of simpler applications, React's Context will probably suffice, however, as we will see in this blog post, the real strength of Redux comes when we leverage it's middleware feature. Middleware is something Context doesn't support out-of-the-box.
+
+Besides, there are thousands of React apps in the wild that are built using with Redux, so chances are good that you will eventually work on a project with Redux. So yes, Redux maybe old, but it's not dead and it's definitely still worth understanding how it works.
 
 ## What is Redux?
 In short Redux is a state management library. It is most often used in React applications, but it is actually framework agnostic. Once we integrate Redux with React we have an easy and predictable way to access and update state from anywhere in our application. And with Redux middleware we will be able to handle operations related to our state such as fetching data from an API and placing it into Redux, logging Redux state etc.
@@ -23,11 +25,11 @@ In short Redux is a state management library. It is most often used in React app
 In Redux we always have a single `store` and that store contains our state. The store allows us to `subscribe` to changes made to the state and it allows us to update the state by sending an `action` to the store. We do that using the `dispatch` method. A dispatched action will first go through any `middleware` the store has and then through the store's `reducer` where it will update existing state and return new state to all subscribers. An action can also dispatch new actions along the way 
 
 ## What we will build
-We will build our own standalone version of Redux. Even though our Redux Clone will be a simplified version of the [real deal](https://redux.js.org/), it will have all of the fundamentals including middleware and integration with React. That way we have everything we need to get a deep understanding of how Redux works. 
+We will build our own version of Redux and even though it will greatly simplified compared to [the real Redux](https://redux.js.org/), it will have everything we need to get a good understanding of how Redux works. 
 
-Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external API and 2) display the Pokémon on the screen. We will then use the Redux Clone to manage the state.
+Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external API and 2) display the Pokémon on the screen. We will then use our Redux Clone to manage the state.
 
-I assume that you already familiar with React, Reducers and Context. If not, I hope you're a fast learner :)
+I assume that you already familiar with React, Reducers and Context. If not, I hope that you are a fast learner.
 
 ## Application Step-by-Step
 Here's a step-by-step breakdown of how our React application will use the Redux Clone.
@@ -35,7 +37,7 @@ Here's a step-by-step breakdown of how our React application will use the Redux 
 1) A user is presented with our UI. The UI contains a `Fetch Pokemon` button and a status text that says `No Pokemon`.
 2) The user click's the `Fetch Pokemon` button.
 3) We `dispatch` an `action` of type `fetch`.
-4) The `store`receives our `action` and runs it through the `middleware`.
+4) The `store` receives our `action` and runs it through the `middleware`.
 5) The `thunk-middleware` sees that the action has a `fetch` method and invokes it.
 6) The `fetch` method makes an async call to an API. Since the API may be slow to respond we `dispatch` an `action` of type `fetching`.
 7) The new fetching `action` is also run through the store's middleware, but nothing happens since it has no method that can be invoked by the `thunk-middleware`.
@@ -158,6 +160,22 @@ The `selector` parameter is a callback function that, when given the store's sta
 
 Inside `useEffect`, we `subscribe` to changes in the store. When the store's state changes, we update our local state with `setState`, causing our component to rerender with the new state.
 
+
+Here's an example of how we can use `useSelector` in a component.
+
+```jsx
+const ShowStatus = () => {
+  const status = useSelector((state) => state.status);
+
+  return (
+    <p>Status: {status}</p>
+  );
+}
+```
+
+As you can see we use the `selector` to pick just `status` instead of returning the entire state object.
+
+
 Let's also create a hook to access the store's `dispatch` method.
 
 ```jsx
@@ -167,6 +185,45 @@ const useDispatch = () => {
 };
 ```
 
+
+And here's an example with the `useDispatch` hook.
+
+```jsx
+const FetchPokemonButton = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    // Dispatch the "fetching" action
+    dispatch({
+      type: 'fetching'
+    });
+
+    // Fetch a random Pokémon
+    fetch(`https://pokeapi.co/api/v2/pokemon?limit=1&offset=${Math.floor(Math.random() * 1000)}`)
+      .then((res) => res.json())
+      .then((json) =>
+        // Dispatch the "fetched" action
+        // with the Pokémon's name as the payload
+        dispatch({
+          type: 'fetched',
+          payload: {
+            name: json.results[0].name
+          }
+        })
+      );
+  };
+
+  return <button onClick={handleClick}>Fetch Pokémon</button>;
+};
+```
+
+We first `dispatch` a "fetching" `action` to the `store`. This allows us to immediately update our UI with a message that informs the user that the request is being processed.
+Once the asynchronous `fetch` completes, we `dispatch` another `action` that contains the fetched data. Now we can update our UI with the fetched Pokémon.
+
+Be sure to check out the [flow chart](#interactive-flow-chart) if this doesn't quite make sense.
+
+
+### Let's run our application
 With our React integration in place we now have everything we need to run our application. Are you excited? 
 
 <a class="bg-pink-100 h-36 rounded flex flex-col leading-none justify-center items-center w-full border-none [&>*]:m-0 gap-y-2" href="https://stackblitz.com/github/BjornFridal/redux-clone/tree/basic?file=src%2FApp.jsx" target="_blank">
@@ -176,4 +233,7 @@ With our React integration in place we now have everything we need to run our ap
 </a>
 
 
-## Middleware
+## What's next? 
+In the next blog post we will wrap up our Redux Clone by adding middleware.
+
+You can find the [here source code on Github](https://github.com/BjornFridal/redux-clone/tree/basic).
