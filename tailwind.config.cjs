@@ -14,6 +14,7 @@ module.exports = {
           css: {
             fontSize: '1.15rem',
             fontWeight: 500,
+            lineHeight: 1.65,
 
             h2: {
               marginBottom: '0.75rem'
@@ -47,6 +48,9 @@ module.exports = {
           }
         }
       }),
+      maxWidth: {
+        'screen-sm': '614px'
+      },
       animation: {
         'spin-slow': 'spin 7s linear infinite'
       }

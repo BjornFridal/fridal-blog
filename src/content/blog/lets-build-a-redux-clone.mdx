@@ -1,5 +1,5 @@
 ---
-title: 'Let''s build a Redux Clone (1/2)'
+title: 'Let''s build a Redux Clone'
 teaser: '...'
 pubDate: null
 description: '...'
@@ -25,7 +25,7 @@ In short Redux is a state management library. It is most often used in React app
 In Redux we always have a single `store` and that store contains our state. The store allows us to `subscribe` to changes made to the state and it allows us to update the state by sending an `action` to the store. We do that using the `dispatch` method. A dispatched action will first go through any `middleware` the store has and then through the store's `reducer` where it will update existing state and return new state to all subscribers. An action can also dispatch new actions along the way 
 
 ## What we will build
-We will build our own version of Redux and even though it will greatly simplified compared to [the real Redux](https://redux.js.org/), it will have everything we need to get a good understanding of how Redux works. 
+We will build our own version of Redux and even though it will greatly simplified compared to [The Real Redux](https://redux.js.org/), it will have everything we need to get a good understanding of how Redux works. 
 
 Since Redux is most often used with React, we will drop our Redux Clone into a small React application. The only thing the application does is 1) fetch a random Pokémon from an external API and 2) display the Pokémon on the screen. We will then use our Redux Clone to manage the state.
 
@@ -57,7 +57,7 @@ That's a lot of steps to wrap your head around. To make it easier I build this f
 Now that we know exactly what we are building, let's get coding! I mentioned that we always have a `store` in Redux and that's where we will start.
 
 ```js
-createStore = (reducer, initialState) => {
+const createStore = (reducer, initialState) => {
   const store = {
     state: initialState,
     listeners: [],
@@ -203,12 +203,10 @@ const FetchPokemonButton = () => {
       .then((res) => res.json())
       .then((json) =>
         // Dispatch the "fetched" action
-        // with the Pokémon's name as the payload
+        // with the Pokémon as the payload
         dispatch({
           type: 'fetched',
-          payload: {
-            name: json.results[0].name
-          }
+          payload: json.results[0]
         })
       );
   };
@@ -223,17 +221,170 @@ Once the asynchronous `fetch` completes, we `dispatch` another `action` that con
 Be sure to check out the [flow chart](#interactive-flow-chart) if this doesn't quite make sense.
 
 
-### Let's run our application
+### Let's run the first version
 With our React integration in place we now have everything we need to run our application. Are you excited? 
 
 <a class="bg-pink-100 h-36 rounded flex flex-col leading-none justify-center items-center w-full border-none [&>*]:m-0 gap-y-2" href="https://stackblitz.com/github/BjornFridal/redux-clone/tree/basic?file=src%2FApp.jsx" target="_blank">
   <h3 class="font-bold">Will it run?</h3>
   <img class="h-8" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz" />
-  <p class="font-semibold text-xs">( version without middleware )</p>
+  <p class="font-semibold text-xs">( v1.0 without middleware )</p>
 </a>
 
 
-## What's next? 
-In the next blog post we will wrap up our Redux Clone by adding middleware.
+## Middleware
+We now have a working state manager. Still, it feels a little like a one-trick-pony.
+It would be nice if we could make our Redux Clone extendable and make it cater to different use cases.
+That's exactly what middleware is - a way for us to extend Redux.
 
-You can find the [here source code on Github](https://github.com/BjornFridal/redux-clone/tree/basic).
+The simplest type of middleware is probably a logger. Below is a `loggerMiddleware` that will log all actions dispatched the store to the brower's console. Simple, but useful.
+
+~~~ jsx
+const loggerMiddleware = (store) => (next) => (action) => {
+  console.log(action);
+  return next(action);
+};
+~~~
+
+Redux favours functional programming over object-oriented programming hence the curried function signature above.
+
+Explaning currying is beyond this blog post. However, if the technique is new to you, just know that we will use currying to pass `getState` and `dispatch` to our middleware.
+
+Our Redux Clone should be able to handle multiple middlewares. We will create a `applyMiddleware` function that can help use with that.
+
+~~~ jsx
+const applyMiddleware = (...middlewares) => {
+  return (createStore) => (reducer, initialState) => {
+    const store = createStore(reducer, initialState);
+
+    const composedMiddleware = middlewares
+      .map((middleware) => {
+        // Give the middleware access to
+        // the store's state and dispatch.
+        return middleware({
+          getState: store.getState,
+          dispatch: (action) => store.dispatch(action)
+        });
+      })
+      .reduce((composed, middleware) => {
+        // Compose the middleware together.
+        return (...args) => composed(middleware(...args));
+      });
+
+    // Override the store's dispatch method.
+    // Now any action dispatched will run
+    // through each middleware first.
+    store.dispatch = composedMiddleware(store.dispatch);
+
+    return store;
+  };
+};
+~~~
+
+We use the parameter `createStore` function to create our store inside of `applyMiddleware`. We can then pass the store's `getState` and `dispatch` methods to each middlware, which we then compose (or chain) together.
+
+We return back to our `createStore` function for the final adjustment.
+
+~~~ jsx
+const createStore = (reducer, initialState, middleware) => {
+  if (middleware) {
+    return middleware(createStore)(reducer, initialState);
+  }
+  ...
+};
+~~~
+Here we have added a third optional `middleware` parameter. If the new `middleware` parameter is available we invoke it and instead return the `store` created in `applyMiddleware`.
+
+That's all we need to support middleware in Redux Clone!
+
+And we can do a lot more than logging with our middleware. A very common middleware is Redux Thunk which allows us to dispatch functions as actions and have our middleware invoke those functions. The functions can be asynchronous or have other side effect.
+
+That seems useful to us, so let's write a `thunkMiddleware`.
+
+~~~jsx
+const thunkMiddleware = (store) => (next) => (action) => {
+  if (typeof action === 'function') {
+    return action(store.dispatch, store.getState);
+  }
+  return next(action);
+};
+~~~
+
+Now that we have written two middlewares let's see how we can add them to new store.
+
+~~~jsx
+const initialState = { status: 'idle', pokemon: null };
+const middleware = applyMiddleware(loggerMiddleware, thunkMiddleware);
+const store = createStore(reducer, initialState, middleware);
+~~~
+
+
+## Action Creators
+
+A common practice in Redux is to use Action Creators to create the action we want to dispatch. Action Creators helps us reduce code duplication and extract logic out from our components. 
+
+Action Creators may seem like overkill in our tiny Pokémon application, however now with `thunkMiddleware` our store can also handle actions that are functions. Let's use Action Creators to create both action objects and action functions.
+
+~~~jsx
+const fetching = () => ({
+  type: 'fetching'
+});
+
+const fetched = (pokemon) => ({
+  type: 'fetched',
+  payload: pokemon
+});
+
+const fetchPokemen = () => (dispatch) => {
+  // Dispatch the "fetching" action
+  dispatch(fetching());
+
+  // Fetch a random pokemon
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=1&offset=${Math.floor(Math.random() * 1000)}`)
+    .then((res) => res.json())
+    .then((json) =>
+      // Dispatch the "fetched" action
+      // with the Pokémon as the payload
+      dispatch(fetched(json.results[0]))
+    );
+};
+~~~
+
+The Action Creators `fetching` and `fetched` both return plain objects.
+
+The `fetchPokemen` is a bit more interesting. It returns a function and if we look closer we see that the function has the same behavior as the click event handler `handleClick`. Why is that? Because we know that action functions will be invoked by `thunkMiddleware` we can extract logic out from the component and place it into an Action Creator.
+
+We also see that `fetchPokemen` has access to the `dispatch`method (thanks `applyMiddleware`), which means that we are not restricted to only dispatching events from component.
+
+That leaves us with a small and very readable React component.
+
+~~~jsx
+const FetchPokemonButton = () => {
+  const dispatch = useDispatch();
+
+  const handleClick = () =>
+    dispatch(fetchPokemen());
+
+  return <button onClick={handleClick}>Fetch Pokémon</button>;
+};
+~~~
+
+
+
+### Let's run the final version
+By adding support for middleware we have made our Redux Clone extendable and with Action Creators we have better separation of concerns and our actions stay DRY.
+
+The UI will look the same as in the first version, but that doesn't mean that we shouldn't take our final version for a test run.
+
+<a class="bg-pink-100 h-36 rounded flex flex-col leading-none justify-center items-center w-full border-none [&>*]:m-0 gap-y-2" href="https://stackblitz.com/github/BjornFridal/redux-clone/tree/main?file=src%2FApp.jsx" target="_blank">
+  <h3 class="font-bold">Will it run?</h3>
+  <img class="h-8" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz" />
+  <p class="font-semibold text-xs">( v1.1 with middleware )</p>
+</a>
+
+
+## Wrap up
+I hope that you enjoyed this blog post and I hope that you have a better understanding of how Redux works. I appreciate any feedback you have small or big.
+
+Definitely connect and say hi on <a href="https://www.linkedin.com/in/fridal/" target="_blank">LinkedIn</a> or <a href="https://twitter.com/BjornFridal" target="_blank">X/Twitter</a> 😊
+
+You can find the source code on <a href="https://github.com/BjornFridal/redux-clone" target="_blank">Github</a>.
