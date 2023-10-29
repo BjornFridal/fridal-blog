@@ -4,7 +4,8 @@ pubDate: null
 description: '...'
 author: 'Bjørn Fridal'
 image: null
-imageAlt: null
+imageAlt: null'
+ogImage: null
 teaser: null
 tags: ['...']
 ---

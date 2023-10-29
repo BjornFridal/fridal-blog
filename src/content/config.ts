@@ -12,6 +12,11 @@ const blogCollection = defineCollection({
           message: 'Cover image must be at least 1080 pixels wide!'
         })
         .nullable(),
+      ogImage: image()
+        .refine((img) => img.width >= 1080, {
+          message: 'Cover image must be at least 1080 pixels wide!'
+        })
+        .nullable(),
       imageAlt: z.string().nullable(),
       teaser: z.string().nullable(),
       tags: z.array(z.string())

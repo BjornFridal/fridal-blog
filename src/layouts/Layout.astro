@@ -5,13 +5,14 @@ import Header from '../components/Header.astro';
 interface Props {
   title: string;
   description?: string;
-  image?: any;
   slug?: string;
+  image?: any;
+  ogImage?: any;
 }
 
-const { title, description, image, slug } = Astro.props;
+const { title, description, slug, image, ogImage } = Astro.props;
 const pageUrl = `https://fridal.dk${slug || ''}`;
-const imageUrl = `https://fridal.dk${image || ''}`;
+const imageUrl = `https://fridal.dk${ogImage || image || ''}`;
 const isProd = import.meta.env.PROD;
 ---
 

@@ -5,6 +5,7 @@ description: '...'
 author: 'Bjørn Fridal'
 image: null
 imageAlt: null
+ogImage: null
 teaser: null
 tags: ['...']
 ---
