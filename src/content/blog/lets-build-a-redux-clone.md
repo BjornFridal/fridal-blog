@@ -1,8 +1,10 @@
 ---
-title: 'Let''s build a Redux Clone'
-teaser: 'We explore all the core principles of Redux as we build our own version from scratch.'
+title: 'Let''s Build a Redux Clone'
+preTitle: 'Mastering Redux'
+metaTitle: 'Mastering Redux: Let''s Build a Redux Clone'
+teaser: 'We explore the core principles of Redux as we build our own state manager from scratch.'
 pubDate: 2023-10-30
-description: 'We explore all the core principles of Redux as we build our own version from scratch.'
+description: 'We explore the core principles of Redux as we build our own state manager from scratch.'
 author: 'Bjørn Fridal'
 image: './files/redux-clone.png'
 imageAlt: 'Redux Store'

@@ -4,13 +4,15 @@ import Header from '../components/Header.astro';
 
 interface Props {
   title: string;
+  metaTitle?: string;
   description?: string;
   slug?: string;
   image?: any;
   ogImage?: any;
 }
 
-const { title, description, slug, image, ogImage } = Astro.props;
+const { title, metaTitle, description, slug, image, ogImage } = Astro.props;
+const pageTitle = metaTitle || title;
 const pageUrl = `https://fridal.dk${slug || ''}`;
 const imageUrl = `https://fridal.dk${ogImage || image || ''}`;
 const isProd = import.meta.env.PROD;
@@ -29,7 +31,7 @@ const isProd = import.meta.env.PROD;
     <!-- Facebook Meta Tags -->
     <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
 
@@ -37,12 +39,12 @@ const isProd = import.meta.env.PROD;
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="fridal.dk" />
     <meta property="twitter:url" content={pageUrl} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
 
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
 
     {
       isProd && (

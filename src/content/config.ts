@@ -5,6 +5,8 @@ const blogCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      preTitle: z.string().optional().nullable(),
+      metaTitle: z.string().optional().nullable(),
       description: z.string(),
       pubDate: z.date().nullable(),
       image: image()
@@ -16,6 +18,7 @@ const blogCollection = defineCollection({
         .refine((img) => img.width >= 1080, {
           message: 'Cover image must be at least 1080 pixels wide!'
         })
+        .optional()
         .nullable(),
       imageAlt: z.string().nullable(),
       teaser: z.string().nullable(),
