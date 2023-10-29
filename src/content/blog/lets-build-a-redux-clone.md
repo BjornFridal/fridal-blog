@@ -388,6 +388,6 @@ The UI will look the same as in the first version, but that doesn't mean that we
 ## Wrap up
 I hope that you enjoyed this blog post and I hope that you have a better understanding of how Redux works. I appreciate any feedback you have small or big.
 
-Definitely connect and say hi on <a href="https://www.linkedin.com/in/fridal/" target="_blank">LinkedIn</a> or <a href="https://twitter.com/BjornFridal" target="_blank">X/Twitter</a> 😊
+Connect and say hi on <a href="https://www.linkedin.com/in/fridal/" target="_blank">LinkedIn</a> or <a href="https://twitter.com/BjornFridal" target="_blank">X/Twitter</a> 😊
 
 You can find the source code on <a href="https://github.com/BjornFridal/redux-clone" target="_blank">GitHub</a>.
