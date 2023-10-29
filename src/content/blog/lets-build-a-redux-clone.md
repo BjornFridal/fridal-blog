@@ -54,7 +54,7 @@ Here's a step-by-step breakdown of how our React application will use the Redux 
 ## Interactive flow chart
 That's a lot of steps to wrap your head around. To make it easier I build this fancy interactive flow chart. Click the button and each step will be shown.
 
-<div class="xl:h-[760px] xl:relative"><div class="border border-purple-100 rounded-lg overflow-hidden xl:absolute xl:h-[760px] xl:w-[630px] px-4 xl:px-8 xl:left-[50%] xl:-translate-x-1/2 "><iframe class="aspect-[141/190] w-full" src="https://rive.app/community/6398-12512-redux-clone-flow-chart/embed" allowfullscreen></iframe></div></div>
+<div class="xl:h-[760px] xl:relative"><div class="border border-purple-100 rounded-lg overflow-hidden xl:absolute xl:h-[760px] xl:w-[630px] px-4 xl:px-8 xl:left-[50%] xl:-translate-x-1/2 "><iframe class="aspect-[141/190] w-full" src="https://rive.app/community/6398-12568-redux-clone-flow-chart/embed" allowfullscreen></iframe></div></div>
 
 ## The Store
 Now that we know exactly what we are building, let's get coding! I mentioned that we always have a `store` in Redux and that's where we will start.
