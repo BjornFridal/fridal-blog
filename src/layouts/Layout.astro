@@ -10,7 +10,8 @@ interface Props {
 }
 
 const { title, description, image, slug } = Astro.props;
-const url = `https://fridal.dk${slug || ''}`;
+const pageUrl = `https://fridal.dk${slug || ''}`;
+const imageUrl = `https://fridal.dk${image || ''}`;
 const isProd = import.meta.env.PROD;
 ---
 
@@ -25,19 +26,19 @@ const isProd = import.meta.env.PROD;
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={imageUrl} />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta property="twitter:domain" content="fridal.dk" />
-    <meta property="twitter:url" content={url} />
+    <meta property="twitter:url" content={pageUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={imageUrl} />
 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
