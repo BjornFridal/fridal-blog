@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Containers/Container.astro';
-import Bio from '../components/Bio.astro';
+import BioMega from '../components/BioMega.astro';
 import Card from '../components/Card.astro';
 
 const posts = await getCollection('blog');
@@ -21,7 +21,7 @@ posts.sort((a, b) => {
   description="My thoughts primarily on frontend development."
 >
   <Container class="mt-10">
-    <Bio />
+    <BioMega />
 
     <div class="mt-10 sm:mt-24">
       <div class="flex max-w-3xl flex-col">

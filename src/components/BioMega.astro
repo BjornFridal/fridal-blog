@@ -1,0 +1,92 @@
+---
+import type { HTMLTag } from 'astro/types';
+export interface Props {
+  titleTag?: HTMLTag;
+  showSocial?: boolean;
+}
+const { titleTag: TitleTag = 'h1' } = Astro.props;
+---
+
+<header class="flex flex-col items-center gap-y-4 sm:gap-y-10 text-center">
+  <div class="relative h-28 w-28 flex-none">
+    <img
+      src="/bface.jpg"
+      alt="Bjørn Fridal"
+      class="rounded-full w-full h-full relative z-10"
+    />
+    <div
+      class="absolute -inset-1 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0 animate-spin-slow"
+    >
+    </div>
+  </div>
+  <div class="w-full">
+    <TitleTag class="font-extrabold text-4xl mb-2 md:text-7xl md:mb-5">
+      Bjørn Fridal
+    </TitleTag>
+
+    <p class="font-extrabold text-xl md:text-3xl mb-6">
+      Fullstack development is my jam 🍓
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-5 mx-3 sm:mx-0">
+      <div class="relative overflow-hidden group cursor-default">
+        <div class="bg-white relative z-10 py-2 px-3 mb-0.5">
+          <h4
+            class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
+          >
+            Frontend
+          </h4>
+          <p class="text-sm font-extrabold whitespace-nowrap">
+            React & Next.js
+          </p>
+        </div>
+        <div
+          class="absolute -inset-1 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0 group-hover:animate-spin-fast"
+        >
+        </div>
+      </div>
+      <div class="relative overflow-hidden group cursor-default">
+        <div class="bg-white relative z-10 py-2 px-3 mb-0.5">
+          <h4
+            class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
+          >
+            Backend
+          </h4>
+          <p class="text-sm font-extrabold whitespace-nowrap">Node.js & C#</p>
+        </div>
+        <div
+          class="absolute -inset-1 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0 group-hover:animate-spin-fast"
+        >
+        </div>
+      </div>
+      <div class="relative overflow-hidden group cursor-default">
+        <div class="bg-white relative z-10 py-2 px-3 mb-0.5">
+          <h4
+            class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
+          >
+            Testing
+          </h4>
+          <p class="text-sm font-extrabold whitespace-nowrap">RTL & Cypress</p>
+        </div>
+        <div
+          class="absolute -inset-1 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0 group-hover:animate-spin-fast"
+        >
+        </div>
+      </div>
+      <div class="relative overflow-hidden group cursor-default">
+        <div class="bg-white relative z-10 py-2 px-3 mb-0.5">
+          <h4
+            class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
+          >
+            Infrastructure
+          </h4>
+          <p class="text-sm font-extrabold whitespace-nowrap">Vercel & AWS</p>
+        </div>
+        <div
+          class="absolute -inset-1 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0 group-hover:animate-spin-fast"
+        >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

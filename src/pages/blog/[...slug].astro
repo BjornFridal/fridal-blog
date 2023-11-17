@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Container from '../../components/Containers/Container.astro';
 import Prose from '../../components/Prose.astro';
-import Bio from '../../components/Bio.astro';
+import BioMicro from '../../components/BioMicro.astro';
 import Layout from '../../layouts/Layout.astro';
 import { formatDate } from '../../lib/date';
 import { Image } from 'astro:assets';
@@ -73,6 +73,6 @@ const { Content } = await entry.render();
       </Prose>
     </article>
 
-    <Bio titleTag="p" showSocial />
+    <BioMicro titleTag="p" showSocial />
   </Container>
 </Layout>
