@@ -7,7 +7,7 @@ teaser: 'My encounter with online scammers and my attempt to hack their website.
 author: 'Bjørn Fridal'
 image: './files/gold-bar.jpg'
 imageAlt: 'Fake gold bar'
-ogImage: null
+ogImage: './files/gold-bar.jpg'
 tags: ['developer']
 ---
 
