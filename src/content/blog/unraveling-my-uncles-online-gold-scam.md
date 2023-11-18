@@ -74,7 +74,7 @@ And it instantly returned the following:
 ]
 ~~~
 
-Okay, so it looks like WordPress just gave me the administrator username - `nimda` is `admin` spelt backwards! If the username is that weak could the password perhaps be just as weak? Or even worse, could the password be the same as the username? The answer is **YES**!
+It looks like WordPress just gave me the administrator username - `nimda` is `admin` spelt backwards! If the username is that weak could the password perhaps be just as weak? Or even worse, could the password be the same as the username? The answer is **YES**!
 
 _I realize that this may be a bit controversial and that some readers will feel that I have overstepped my mark here. My justification is that the potential to prevent an ongoing scam outweighs the breach of digital etiquette. I am not endorsing hacking, I am using my technical knowledge in a responsible way to fight back against a harmful deception._
 
