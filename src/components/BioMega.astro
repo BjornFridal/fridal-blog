@@ -20,6 +20,15 @@ const { titleTag: TitleTag = 'h1' } = Astro.props;
     </div>
   </div>
   <div class="w-full">
+    <div class="flex items-center justify-center gap-x-2 mb-3">
+      <span class="bg-emerald-600 relative rounded-full w-2 h-2 inline-block">
+        <span
+          class="absolute -left-0 -top-0 opacity-25 bg-emerald-600 rounded-full w-2 h-2 inline-block animate-grow-fade"
+        ></span>
+      </span>
+      <p class="text-emerald-600 text-lg font-bold">Available for work</p>
+    </div>
+
     <TitleTag class="font-extrabold text-4xl mb-2 md:text-7xl md:mb-5">
       Bjørn Fridal
     </TitleTag>

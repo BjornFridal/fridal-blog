@@ -53,7 +53,14 @@ module.exports = {
       },
       animation: {
         'spin-slow': 'spin 7s linear infinite',
-        'spin-fast': 'spin 3.5s linear infinite'
+        'grow-fade': 'grow-fade 1s linear infinite'
+      },
+
+      keyframes: {
+        'grow-fade': {
+          '0%': { opacity: 0.5, transform: 'scale(1)' },
+          '100%': { opacity: 0, transform: 'scale(2.5)' }
+        }
       }
     }
   },
