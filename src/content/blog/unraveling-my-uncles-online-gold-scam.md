@@ -5,9 +5,9 @@ pubDate: 2023-11-18
 description: 'My encounter with online scammers and my attempt to hack their website.'
 teaser: 'My encounter with online scammers and my attempt to hack their website.'
 author: 'Bjørn Fridal'
-image: './files/gold-bar.jpg'
-imageAlt: 'Fake gold bar'
-ogImage: './files/gold-bar.jpg'
+image: './files/with-love-from-nigeria.jpg'
+imageAlt: 'With Love From Nigeria'
+ogImage: './files/with-love-from-nigeria.jpg'
 tags: ['developer']
 ---
 
