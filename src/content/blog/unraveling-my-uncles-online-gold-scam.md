@@ -64,14 +64,11 @@ https://fakebank.com/wp-json/wp/v2/users
 And it instantly returned the following:
 
 ~~~json
-[
-   {
-      "id":2,
-      "link":"https://fakebank.com/author/nimda/",
-      "slug":"nimda",
-      ...
-   }
-]
+{
+  "id": 2,
+  "slug": "nimda"
+  ...
+}
 ~~~
 
 It looks like WordPress just gave me the administrator username - `nimda` is `admin` spelt backwards! If the username is that weak could the password perhaps be just as weak? Or even worse, could the password be the same as the username? The answer is **YES**!
@@ -80,11 +77,10 @@ _I realize that this may be a bit controversial and that some readers will feel 
 
 Logging into the administration of the fake banking website gave me access to everything the scammers had access to on the website. It was plain to see that the sole purpose of this website was to defraud my uncle and only him. Whenever my uncle had "traded" gold someone would manually log into the WordPress administration and update his "bank deposit" and "bank statement".
 
-I made other observations as to how the website operates, but I won't go into too many details here to avoid making it obvious to the wrong people.
+However, the biggest surprise was hidden deep in the Media archive of WordPress. Passport pictures of what were clearly other victims! I found other materials that confirmed my suspicion that the website had been reused over and over again for similar scams. Seeing these pictures of elderly men, likely victims of the same scam as my uncle, filled me with a profound sense of sadness.
 
-I made sure not to change anything on the website or leave obvious clues to me logging in. Instead, I took screenshots of all of my findings. This, I hoped, would be the final nail in the coffin!
+I took screenshots of all of my findings and hoped that this would be the final nail in the coffin of my uncle’s scam!
 
-**Sidenote** If you are running a WordPress website I recommend disabling the REST API or only allowing the necessary endpoints to stay open.
 
 ## Presenting the Evidence to My Uncle
 Armed with all the screenshots and my correspondence with the legitimate gold trader, I visited my uncle. We had a talk. A long talk. We went back and forth over the details. I made every effort to translate my technical discoveries into terms that resonated with him.
@@ -102,4 +98,50 @@ Honestly, this was the hardest part and still is. Before I even went to see my u
 
 We didn't think less of him because he had lost a lot of money on his "investments". His self-imposed isolation didn't change our view of him; his rightful place was, and always will be, among his family.
 
-**Disclaimer** _The victim in this story isn't really my uncle, but another close relative. I have changed a few other details to ensure the privacy of everyone._
+
+
+## Conclusion
+
+Online scams are a crime with real victims and the damage goes far beyond the financial losses. The victims often struggle with shame and a sense of betrayal, which can result in lasting emotional distress.
+
+As an onlooker, it is deeply frustrating to witness someone you care about being deceived and have your warnings dismissed. Yet, we have to persist and to do everything we can to help the victims. Particularly once they come to the painful realization that they have been exploited.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="mx-24">
+
+![Comforting old man](./files/comforting-old-man.jpg)
+
+</div>
+
+<small>
+
+**Disclaimer** _The victim in this story isn't really my uncle, but another close relative. I have changed a few other details as well to ensure the privacy of everyone._
+
+</small>
