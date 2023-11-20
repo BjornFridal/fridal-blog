@@ -11,20 +11,20 @@ ogImage: './files/with-love-from-nigeria.jpg'
 tags: ['developer']
 ---
 
-The media is overflowing with stories of people getting scammed. Romance scams, investment scams, charity scams, sextortion and the list goes on. As a tech-savvy person, it is often easy to spot the difference between a genuine email from the bank and a fake phishing email from a scammer. That being said as the scammers get more sophisticated, even people in the tech industry fall victim to scams.
+The media is overflowing with stories of people getting scammed. Romance scams, investment scams, charity scams, sextortion and the list goes on. As a tech-savvy person, it is often easy to spot the difference between a genuine email from the bank and a fake phishing email from a scammer. That being said, as the scammers get more sophisticated, even people in the tech industry fall victim to scams.
 
-It’s no wonder then that people who are not as digitally literate, are particularly vulnerable to these deceptive tactics. It could be someone close to you. Perhaps a relative. Perhaps your uncle.
+It’s no wonder that people who are not as digitally literate are particularly vulnerable to these deceptive tactics. It could be someone close to you. Perhaps a relative. Perhaps your uncle.
 
 ## My Uncle, The Victim
 My uncle had over the past year made a few remarks about some "secret investments" he was making. At first he was very withholding as to the nature of these investments, but after pressing him on the matter, my fears were confirmed.
 
 He had met a young woman online. Even though they had never met in real life, they had quickly struck up a romantic relationship. Only the young woman was in a dire situation. She was supposedly due to receive a significant inheritance in gold, yet she claimed she couldn't access it without first paying a 'retrieval fee' amounting to several thousand dollars. Horrifyingly, my uncle had paid this fee, only to discover that now even larger fees were demanded.
 
-By this stage, all of your spider senses should be going off! The scenario was a textbook example of a classic romance scam. Its lack of originality was actually surprising to me. One would think that scammers might have better success if they tried with new approaches.
+By this stage, all of your spider senses should be going off! The scenario was a textbook example of a classic romance scam. The lack of originality was actually surprising to me. One would think that scammers might have better success if they tried with new approaches.
 
 Yet, the specifics of the story were less important than my uncle's circumstances. Being elderly, single, with ample free time and retirement savings, he was an ideal target. Despite his naturally skeptical disposition, the scammers gradually drew him into their fabricated realm over several months. It was a world filled with adventure and intrigue, where a young woman required his assistance, gold needed to be smuggled from African countries, corrupt officials bribed, and numerous other challenges surmounted.
 
-To an outsider, the whole situation resembled a poorly written crime novel, with my uncle cast as the improbable hero, inadvertently caught up in a tangled web of intrigue and romance. I guess that his belief in these unlikely tales likely stemmed from a combination of loneliness and the thrill of what seemed like an adventurous, albeit risky, escapade. These elements, coupled with skillful manipulation by the scammers, made the implausible seem all too real to him.
+To an outsider, the whole situation resembled a poorly written crime novel, with my uncle cast as the improbable hero, inadvertently caught up in a tangled web of intrigue and romance. I guess that his belief in these unlikely tales stemmed from a combination of loneliness and the thrill of what seemed like an adventurous, albeit risky, escapade. These elements, coupled with skillful manipulation by the scammers, made the implausible seem all too real to him.
 
 ## Our Failed Attempts at Reasoning
 As you can imagine, when my uncle's story became known among our family, numerous worried relatives reached out to him. It was surprising and disheartening to find that all our attempts to reason with him proved futile. He dismissed our warnings with laughter. Each time someone pointed out the inconsistencies in the scammers' stories, he would simply retort with 'you don’t understand'. Eventually, it dawned on me that the scammers had skillfully sown seeds of distrust towards us in his mind, effectively cutting him off from our concern.
@@ -38,7 +38,7 @@ At last, I thought! This could be the breakthrough I had been waiting for. Gaini
 The banking website was absurdly poorly built. It used a cheap WordPress theme and several of the pages still had the original "Lorem ipsum..." text that the theme came with! The bank's logo, name and colour scheme had been ripped from a real bank in the UK. Piggy bagging off of a real bank was a smart move, but to a developer, the website looked every bit as fake as it was.
 
 ### 2. The clue in the SSL certificate
-I looked up the registrar of the domain, but all contact details were hidden. However, the website had a Let's Encrypt SSL certificate, though its Common Name (CN) was issued to a Nigerian Hotel. Strange for a bank located in the UK, but lucky for me. With the name of the Nigerian Hotel, I was able to find another fake website using the same WordPress theme, but this time fitted for a hotel. I never did figure out what scam the hotel website had been used for, but when I looked up the domain registrar I hit the jackpot! The registrar's name and email address stood there in plain text!
+I looked up the registrar of the domain, but all contact details were hidden. However, the website had a Let's Encrypt SSL certificate, though it's Common Name (CN) was issued to a Nigerian Hotel. Strange for a bank located in the UK, but lucky for me. With the name of the Nigerian Hotel, I was able to find another fake website using the same WordPress theme, but this time fitted for a hotel. I never did figure out what scam the hotel website had been used for, but when I looked up the domain registrar I hit the jackpot! The registrar's name and email address stood there in plain text!
 
 ### 3. The amateur web developer
 With the name and email address of the domain registrar, I was able to find a string of expired domains the registrar had previously owned. 113 domains to be exact! Many of the domains sounded like banking websites, exchange websites or investment websites. It was all to easy to imagine how they could have been used for scams similar to my uncle's.
