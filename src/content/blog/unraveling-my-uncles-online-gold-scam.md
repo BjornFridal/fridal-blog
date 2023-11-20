@@ -55,7 +55,7 @@ To my surprise, the real gold trader replied within a day. This was not the firs
 ### 5. The Developer Turned Hacker
 By now I had a good pile of indications and evidence. At the same time, I was sure that the fake banking website contained more information. As any other web developer would have, I attempted to guess the login to the WordPress administration. That didn't work and my IP address was banned for an hour. Now, I don't dislike WordPress per se, but the CMS does carry around some legacy code.
 
-I wondered if I could extract a username from the website. After some Googling, I saw that the WordPress REST API apparently lets anybody fetch the WP users. Really? I pointed my browser at:
+I wondered if I could extract a username from the website. After some Googling, I saw that the WordPress REST API apparently let's anybody fetch the WP users. Really? I pointed my browser at:
 
 ~~~
 https://fakebank.com/wp-json/wp/v2/users
@@ -92,7 +92,7 @@ Gradually, I began to sense a shift. He began to ask questions, showing a growin
 
 
 ## What Happens Once the Lie is Exposed?
-Even as I was gathering evidence against the scammers, I grappled with a conflicting fear: what would happen if I successfully convinced my uncle about the scam? I'd be taking away something significant from an elderly man. His primary interactions were with the scammers. The excitement in his life, the allure of romance, and the promise of wealth all stemmed from their fabricated tales.
+Even as I was gathering evidence against the scammers, I grappled with a conflicting fear: what would happen if I successfully convinced my uncle about the scam? I would be taking away something significant from an elderly man. His primary interactions were with the scammers. The excitement in his life, the allure of romance, and the promise of wealth all stemmed from their fabricated tales.
 
 Honestly, this was the hardest part and still is. Before I even went to see my uncle I had talked to several family members, briefing them about my intentions. I wanted to let them know that my uncle could use our support now more than ever.
 
@@ -104,7 +104,7 @@ We didn't think less of him because he had lost a lot of money on his "investmen
 
 Online scams are a crime with real victims and the damage goes far beyond the financial losses. The victims often struggle with shame and a sense of betrayal, which can result in lasting emotional distress.
 
-As an onlooker, it is deeply frustrating to witness someone you care about being deceived and have your warnings dismissed. Yet, we have to persist and to do everything we can to help the victims. Particularly once they come to the painful realization that they have been exploited.
+As an onlooker, it is deeply frustrating to witness someone you care about being deceived and have your warnings dismissed. Yet, we have to persist and do everything we can to help the victims. Particularly once they come to the painful realization that they have been exploited.
 
 
 
