@@ -1,6 +1,20 @@
 ---
 import Container from './Containers/Container.astro';
-import SocialIcons from './SocialIcons.astro';
+
+const links = [
+  {
+    url: '/',
+    label: 'Blog'
+  },
+  {
+    url: '/resume',
+    label: 'Resume'
+  },
+  {
+    url: 'mailto:bjorn@fridal.dk',
+    label: 'Contact'
+  }
+];
 ---
 
 <header class="relative z-50 flex flex-none flex-col">
@@ -17,7 +31,20 @@ import SocialIcons from './SocialIcons.astro';
           </div>
         </div>
 
-        <SocialIcons />
+        <nav class="flex items-center justify-end space-x-4">
+          {
+            links.map(({ url, label }) => (
+              <a
+                href={url}
+                class="text-xs uppercase font-medium text-black hover:text-slate-500 transition-colors duration-200"
+              >
+                {label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <!-- <SocialIcons /> -->
       </div>
     </Container>
   </div>

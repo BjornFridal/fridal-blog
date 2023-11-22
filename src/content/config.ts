@@ -26,6 +26,22 @@ const blogCollection = defineCollection({
     })
 });
 
+const resumeCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      company: z.string(),
+      date: z.date(),
+      highlights: z.array(z.string()),
+      skills: z.array(z.string()),
+      website: z.string().url().optional(),
+      image: image().optional(),
+      imageAlt: z.string().optional()
+    })
+});
+
 export const collections = {
-  blog: blogCollection
+  blog: blogCollection,
+  resume: resumeCollection
 };

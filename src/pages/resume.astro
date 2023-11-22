@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Containers/Container.astro';
+import BioMega from '../components/BioMega.astro';
+import { Image } from 'astro:assets';
+import { formatDate } from '../lib/date';
+
+const posts = await getCollection('resume');
+
+// Sort posts by date
+posts.sort((a, b) => {
+  const dateA = new Date(a.data.date || -1);
+  const dateB = new Date(b.data.date || -1);
+
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<Layout title="Resume" description="...">
+  <Container class="mt-10">
+    <BioMega />
+
+    <div class="mt-10 sm:mt-24">
+
+      <h2 class="font-bold text-lg mb-6">Work Experience</h2>
+
+      <ul class="space-y-6">
+        {
+          posts.map((post, index) => (
+            <li class="relative flex gap-x-10">
+              <!-- Vertical line -->
+              <div
+                class:list={[
+                  'absolute left-0 top-0 flex w-6 justify-center',
+                  index === posts.length - 1 ? 'h-6' : '-bottom-6'
+                ]}
+              >
+                <div class="w-px bg-indigo-200" />
+              </div>
+
+              <!-- Dot -->
+              <div class="relative flex h-6 w-6 text-sm text-indigo-900 font-semibold flex-none items-center justify-center bg-white">
+                <div class="h-1 w-1 rounded-full bg-indigo-600 ring-1 ring-indigo-600" />               
+              </div>
+
+              <!-- Content -->
+              <div class="flex flex-col flex-1">
+
+                <!-- Head -->
+                <div class="flex items-start justify-between">
+                  <div class="">
+                    <h2 class="text-sm font-bold">{post.data.title}</h2>
+                    <h4 class="inline-flex items-center gap-2 text-xs">
+                      {post.data.company}
+                      {post.data.website && (
+                        <Fragment>
+                          <span class="inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-br to-indigo-600 from-indigo-100 animate-spin-slow"></span>
+
+                          <a
+                            href={post.data.website}
+                            target="_blank"
+                            class="underline hover:no-underline inline-block"
+                          >
+                            Visit website
+                          </a>
+                        </Fragment>
+                      )}                    
+                    </h4>
+                  </div>
+                  <span class="font-bold text-sm">
+                    {new Date(post.data.date).getFullYear()}
+                  </span>
+                </div>
+              
+
+                <!-- Body -->
+                <div class="my-4">
+                  
+                   <!-- Highlights -->
+                  {post.data.highlights.length > 0 && (
+                    <ul class="mb-4 space-y-2">
+                      {post.data.highlights.map((item) => (
+                        <li class="flex items-center gap-5">
+                          <span class="rounded-full inline-block h-1 w-1 bg-zinc-400" />
+                          <span class="text-sm">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                   <!-- Skills -->
+                  {post.data.skills.length > 0 && (
+                    <ul class="inline-flex flex-wrap gap-x-1 gap-y-2 mb-4 text-xs">
+                      {post.data.skills.map((skill, index) => (
+                        <Fragment>
+                          <li class="border rounded-md px-1">{skill}</li>
+
+                          <!--
+                          {index < post.data.skills.length - 1 && (
+                            <li class="text-gray-400">•</li>
+                          )}
+                          -->
+                        </Fragment>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
+</Layout>
