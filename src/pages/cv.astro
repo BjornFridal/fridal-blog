@@ -3,10 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Containers/Container.astro';
 import BioMega from '../components/BioMega.astro';
-import { Image } from 'astro:assets';
-import { formatDate } from '../lib/date';
 
-const posts = await getCollection('resume');
+const posts = await getCollection('cv');
 
 // Sort posts by date
 posts.sort((a, b) => {
@@ -17,7 +15,7 @@ posts.sort((a, b) => {
 });
 ---
 
-<Layout title="Resume" description="...">
+<Layout title="CV" description="...">
   <Container class="mt-10">
     <BioMega />
 

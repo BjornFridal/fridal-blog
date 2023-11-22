@@ -26,7 +26,7 @@ const blogCollection = defineCollection({
     })
 });
 
-const resumeCollection = defineCollection({
+const cvCollection = defineCollection({
   type: 'content',
   schema: ({ image }) =>
     z.object({
@@ -43,5 +43,5 @@ const resumeCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
-  resume: resumeCollection
+  cv: cvCollection
 };
