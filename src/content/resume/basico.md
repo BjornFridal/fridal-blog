@@ -8,6 +8,6 @@ highlights: [
   'Collaboratively crafted mockups and prototypes with the design team.',
   'Translated Figma designs into functional websites using Umbraco.'
 ]
-skills: ['Umbraco', 'JavaScript', 'HTML', 'CSS', 'Figma']
+skills: ['Umbraco', 'JavaScript', 'HTML', 'CSS', 'Responsive Web Design', 'Figma']
 website: 'https://basico.dk/'
 ---

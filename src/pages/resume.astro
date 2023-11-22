@@ -21,10 +21,15 @@ posts.sort((a, b) => {
   <Container class="mt-10">
     <BioMega />
 
-    <div class="mt-10 sm:mt-24">
+    <div class="mt-10 sm:mt-14">
+
+      <div class="text-sm leading-relaxed">
+        <p class="mb-4">I am a senior fullstack developer with my primary focus on frontend development. My strengths include problem-solving, clear communication and a keen eye for design and UX.</p>
+        <p class="mb-4">Having worked as a consultant for more than 15 years, I quickly onboard to new projects and work well in cross-functional teams.</p>
+        <p class="mb-14">I believe in the “leaving your ego at the door” philosophy. I enjoy learning from others, embracing different perspectives, and owning up to mistakes, though I aim to keep those rare.</p>
+      </div>
 
       <h2 class="font-bold text-lg mb-6">Work Experience</h2>
-
       <ul class="space-y-6">
         {
           posts.map((post, index) => (
@@ -55,14 +60,15 @@ posts.sort((a, b) => {
                       {post.data.company}
                       {post.data.website && (
                         <Fragment>
-                          <span class="inline-block h-1.5 w-1.5 rounded-full bg-gradient-to-br to-indigo-600 from-indigo-100 animate-spin-slow"></span>
+                          <span class="inline-block h-1 w-1 rounded-full bg-zinc-400"></span>
 
                           <a
                             href={post.data.website}
                             target="_blank"
-                            class="underline hover:no-underline inline-block"
+                            class="group relative inline-block"
                           >
                             Visit website
+                            <span class="absolute h-[1px] w-full left-0 bottom-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0 group-hover:translate-y-0.5 transition-all"></span>
                           </a>
                         </Fragment>
                       )}                    

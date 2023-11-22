@@ -6,9 +6,9 @@ text: '...'
 highlights: [
   'Planned out and created sprints with project lead.',
   'Designed wireframe in collaboration with designer.',
-  'Implemented Adobe XD design in Umbraco Cloud.',
+  'Translated Adobe XD design into responsive web design.',
   'Wrote "download builder" in vanilla JavaScript.'
 ]
-skills: ['Umbraco', 'JavaScript', 'HTML', 'CSS', 'Adobe XD']
+skills: ['Umbraco', 'JavaScript', 'HTML', 'CSS', 'Responsive Web Design' ,'Adobe XD']
 website: 'https://levlivet.online/'
 ---
