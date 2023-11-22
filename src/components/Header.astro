@@ -3,10 +3,6 @@ import Container from './Containers/Container.astro';
 
 const links = [
   {
-    url: '/',
-    label: 'Blog'
-  },
-  {
     url: '/cv',
     label: 'CV'
   },
@@ -31,12 +27,12 @@ const links = [
           </div>
         </div>
 
-        <nav class="flex items-center justify-end space-x-4">
+        <nav class="flex items-center justify-end space-x-2">
           {
             links.map(({ url, label }) => (
               <a
                 href={url}
-                class="text-xs uppercase font-medium text-black hover:text-slate-500 transition-colors duration-200"
+                class="text-xs bg-gradient-to-t from-indigo-500 to-purple-500 inline-block rounded-full py-0.5 px-1.5 tracking-wider uppercase font-bold text-white transition-all hover:from-indigo-600 hover:to-purple-500"
               >
                 {label}
               </a>
