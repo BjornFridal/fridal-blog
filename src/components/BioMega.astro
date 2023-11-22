@@ -2,9 +2,9 @@
 import type { HTMLTag } from 'astro/types';
 export interface Props {
   titleTag?: HTMLTag;
-  showSocial?: boolean;
+  showBullets?: boolean;
 }
-const { titleTag: TitleTag = 'h1' } = Astro.props;
+const { titleTag: TitleTag = 'h1', showBullets } = Astro.props;
 ---
 
 <header class="flex flex-col items-center gap-y-4 sm:gap-y-10 text-center">
@@ -19,6 +19,7 @@ const { titleTag: TitleTag = 'h1' } = Astro.props;
     >
     </div>
   </div>
+
   <div class="w-full">
     <div class="flex items-center justify-center gap-x-2 mb-3">
       <span class="bg-emerald-600 relative rounded-full w-2 h-2 inline-block">
@@ -37,63 +38,47 @@ const { titleTag: TitleTag = 'h1' } = Astro.props;
       Fullstack development is my jam 🍓
     </p>
 
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-5 mx-3 sm:mx-0">
-      <div class="relative">
-        <h4
-          class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
-        >
-          Frontend
-        </h4>
-        <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
-          React & Next.js
-        </p>
-        <div
-          class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0"
-        >
+    {
+      showBullets && (
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-5 mx-3 sm:mx-0">
+          <div class="relative">
+            <h4 class="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+              Frontend
+            </h4>
+            <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
+              React & Next.js
+            </p>
+            <div class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0" />
+          </div>
+          <div class="relative">
+            <h4 class="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+              Backend
+            </h4>
+            <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
+              Node.js & C#
+            </p>
+            <div class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0" />
+          </div>
+          <div class="relative">
+            <h4 class="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+              Testing
+            </h4>
+            <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
+              RTL & Cypress
+            </p>
+            <div class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0" />
+          </div>
+          <div class="relative">
+            <h4 class="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+              Infrastructure
+            </h4>
+            <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
+              Vercel & AWS
+            </p>
+            <div class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0" />
+          </div>
         </div>
-      </div>
-      <div class="relative">
-        <h4
-          class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
-        >
-          Backend
-        </h4>
-        <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
-          Node.js & C#
-        </p>
-        <div
-          class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0"
-        >
-        </div>
-      </div>
-      <div class="relative">
-        <h4
-          class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
-        >
-          Testing
-        </h4>
-        <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
-          RTL & Cypress
-        </p>
-        <div
-          class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 z-0"
-        >
-        </div>
-      </div>
-      <div class="relative">
-        <h4
-          class="text-zinc-500 text-xs tracking-widest uppercase font-semibold"
-        >
-          Infrastructure
-        </h4>
-        <p class="text-sm font-extrabold whitespace-nowrap mb-2.5">
-          Vercel & AWS
-        </p>
-        <div
-          class="absolute h-0.5 w-full left-0 bottom-0 bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-500 z-0"
-        >
-        </div>
-      </div>
-    </div>
+      )
+    }
   </div>
 </header>
