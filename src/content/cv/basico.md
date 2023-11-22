@@ -1,5 +1,5 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Senior Fullstack Developer Consultant"
 company: "Basico via Ørskov"
 date: 2022-02-01
 text: '...'

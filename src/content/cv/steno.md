@@ -1,5 +1,5 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Senior Fullstack Developer Consultant"
 company: "Steno via Zupa"
 date: 2022-03-01
 text: '...'

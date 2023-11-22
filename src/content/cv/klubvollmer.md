@@ -1,5 +1,5 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Senior Fullstack Developer Consultant"
 company: "Klub Vollmer"
 date: 2023-01-01
 text: 'I created a Next.js website for the online cooking community Klub Vollmer. You can purchase access to the community through the website and get access to a vast catalog of cooking videos and recipes. Beyond the website, I led the creation of a webshop, empowering members and other visitors to purchase the signature kitchen tools.'

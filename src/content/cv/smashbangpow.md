@@ -1,5 +1,5 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Senior Fullstack Developer Consultant"
 company: "Smash!Bang!Pow!"
 date: 2022-01-01
 text: '...'
