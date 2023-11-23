@@ -2,7 +2,7 @@
 title: "Frontend Developer"
 company: "EventForce Retail"
 employment: "Contractor"
-date: 2019-01-01
+date: 2020-01-01
 highlights: [
   'Developed Progressive Web Application (PWA) using React.',
   'Created GeoFence for the app in collaboration with the backend developer.',
