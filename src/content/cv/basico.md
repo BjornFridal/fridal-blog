@@ -1,8 +1,8 @@
 ---
-title: "Senior Fullstack Developer Consultant"
+title: "Senior Fullstack Developer"
 company: "Basico via Ørskov"
+employment: "Contractor"
 date: 2022-02-01
-text: '...'
 highlights: [
   'Coordinated and developed project timelines with the team leader.',
   'Collaboratively crafted mockups and prototypes with the design team.',

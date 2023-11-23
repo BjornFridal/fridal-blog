@@ -56,6 +56,14 @@ posts.sort((a, b) => {
                     <h2 class="text-sm font-bold">{post.data.title}</h2>
                     <h4 class="inline-flex items-center gap-2 text-xs">
                       {post.data.company}
+
+                      {post.data.employment && (
+                        <Fragment>
+                          <span class="inline-block h-1 w-1 rounded-full bg-zinc-400"></span>
+                          {post.data.employment}
+                        </Fragment>
+                      )}
+
                       {post.data.website && (
                         <Fragment>
                           <span class="inline-block h-1 w-1 rounded-full bg-zinc-400"></span>

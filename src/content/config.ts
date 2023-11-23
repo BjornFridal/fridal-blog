@@ -32,6 +32,7 @@ const cvCollection = defineCollection({
     z.object({
       title: z.string(),
       company: z.string(),
+      employment: z.string(),
       date: z.date(),
       highlights: z.array(z.string()),
       skills: z.array(z.string()),

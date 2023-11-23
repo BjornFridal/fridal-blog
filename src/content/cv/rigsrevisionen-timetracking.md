@@ -1,11 +1,11 @@
 ---
-title: "Frontend Developer Consultant"
+title: "Frontend Developer"
 company: "Rigsrevisionen"
+employment: "Contractor"
 date: 2021-01-01
-text: ''
 highlights: [
   'Researched legacy Silverlight application and wrote functional specs.',
-  'Developed a Vue.js timetracking application to replace legacy application.',
+  'Developed a Vue.js time-tracking application to replace a legacy application.',
   'Built API that integrated with databases across the organization.',
   'Wrote documentation for the application and the API.'
 ]

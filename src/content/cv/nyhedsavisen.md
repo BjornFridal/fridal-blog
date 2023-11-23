@@ -1,8 +1,8 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Fullstack Developer"
 company: "Nyhedsavisen"
+employment: "Contractor"
 date: 2011-01-01
-text: ''
-highlights: ['Developed newspaper distribution system based ASP.NET']
+highlights: ['Developed newspaper distribution application based ASP.NET']
 skills: []
 ---

@@ -1,7 +1,8 @@
 ---
-title: "Fullstack Developer Consultant"
+title: "Fullstack Developer"
 company: "Manova"
+employment: "Contractor"
 date: 2016-01-01
-highlights: ['Developed career enrollment system based on .NET core']
+highlights: ['Developed career enrollment application based on .NET core']
 skills: []
 ---

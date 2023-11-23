@@ -1,11 +1,11 @@
 ---
-title: "Senior Fullstack Developer Consultant"
+title: "Senior Fullstack Developer"
 company: "Steno via Zupa"
+employment: "Contractor"
 date: 2022-03-01
-text: '...'
 highlights: [
-  'Planned out and created sprints with project lead.',
-  'Designed wireframe in collaboration with designer.',
+  'Planned out and created sprints with the project lead.',
+  'Designed wireframe in collaboration with the designer.',
   'Translated Adobe XD design into responsive web design.',
   'Wrote "download builder" in vanilla JavaScript.'
 ]
