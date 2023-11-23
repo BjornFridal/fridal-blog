@@ -9,7 +9,8 @@ highlights: [
   'Covered application with unit tests (Jest) and E2E tests (Cypress).',
   'Created UI library based on Material UI.',
   'Documented React components with Storybook.',
-  'Build CI/CD pipeline with GitHub Actions.'
+  'Build CI/CD pipeline with GitHub Actions.',
+  'Configured detailed error monitoring using Sentry.'
 ]
-skills: ['React', 'Redux', 'PWA', 'Jest', 'Storybook', 'Cypress', 'CI/CD', 'GraphQL', 'Syncfusion']
+skills: ['React', 'Redux', 'PWA', 'Jest', 'Storybook', 'Cypress', 'CI/CD', 'GraphQL', 'Sentry', 'Syncfusion']
 ---
