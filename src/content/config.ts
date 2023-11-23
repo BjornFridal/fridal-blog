@@ -35,9 +35,7 @@ const cvCollection = defineCollection({
       date: z.date(),
       highlights: z.array(z.string()),
       skills: z.array(z.string()),
-      website: z.string().url().optional(),
-      image: image().optional(),
-      imageAlt: z.string().optional()
+      website: z.string().url().optional()
     })
 });
 

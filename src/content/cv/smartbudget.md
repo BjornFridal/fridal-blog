@@ -11,6 +11,4 @@ highlights: [
   'Used React Testing Library to cover app with unit tests.'
 ]
 skills: ['React', 'TypeScript', 'Zustand', 'Tailwind', 'Radix UI', 'Framer Motion', 'Figma', 'Storybook', 'React Testing Library']
-image: './files/smartbudget-logo.png'
-imageAlt: 'SmartBudget Logo'
 ---

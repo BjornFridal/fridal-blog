@@ -1,15 +1,12 @@
 ---
 title: "Fullstack Developer Consultant"
-company: "DBA"
+company: "DBA Guide"
 date: 2018-01-01
 highlights: [
-  'Performance improvements of Umbraco website.',
-  'Optimize accessibility based on WCAG standard.',
+  'Debug entire stack to identify performance bottlenecks.',
+  'Performance and Lighthouse Score improvements.',
+  'Accessibility (WCAG standard) improvements.',
 ]
-skills: []
-__highlights: ['Website optimization', 'Performance improvements']
-__skills: ['JavaScript', 'Umbraco']
+skills: ['Performance', 'WCAG', 'Accessibility', 'Lighthouse', 'JavaScript', 'Umbraco']
 website: 'https://guide.dba.dk'
-image: './files/dba-guide-logo.svg'
-imageAlt: 'DBA Guide Logo'
 ---

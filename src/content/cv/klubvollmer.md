@@ -14,6 +14,4 @@ highlights: [
 ]
 skills: ['Next.js', 'Node.js', 'React', 'Redux', 'Figma', 'Tailwind', 'Hangfire', 'API Gateway', 'Terraform']
 website: 'https://klubvollmer.dk'
-image: './files/klubvollmer-logo.png'
-imageAlt: 'Klub Vollmer Logo'
 ---
